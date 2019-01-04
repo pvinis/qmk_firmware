@@ -2,12 +2,12 @@
 #include "version.h"
 
 #ifdef AUDIO_ENABLE
-#include "audio.h"
-#endif // AUDIO_ENABLE
+  #include "audio.h"
+#endif
 
 
 #ifdef AUDIO_ENABLE
-float tone_katamari_rolling_star[][2] = SONG(KATAMARI_ROLLING_STAR);
+  float tone_katamari_rolling_star[][2] = SONG(KATAMARI_ROLLING_STAR);
 #endif // AUDIO_ENABLE
 
 

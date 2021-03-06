@@ -47,6 +47,7 @@
 //   float n57[][2] = SONG(FF_PRELUDE);
 // RGB_MODE_KNIGHT
 //   float n78[][2] = SONG(KATAMARI_ROLLING_STAR);
+    float song_qwerty[][2] = SONG(QWERTY_SOUND);
 #endif
 
 
@@ -187,4 +188,13 @@ bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
         #endif
     }
     return true;  // Process everything else normally
+}
+
+
+// keyboard initialization
+void keyboard_post_init_user_keymap(void) {
+    layer_on(LR_QWERTY);
+    #ifdef AUDIO_ENABLE
+        PLAY_SONG(song_qwerty);
+    #endif
 }

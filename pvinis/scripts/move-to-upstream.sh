@@ -2,25 +2,15 @@
 set -Eeuo pipefail
 
 
-BASE=~/Source/contrib/qmk_firmware
-MINE=~/Source/pvinis/my_qmk_firmware
+BASE=.
+MINE=./pvinis
 
-cd $BASE
 
 git checkout master
-git pull
-git checkout pvinis/master
-git pull
-git merge master
+# git checkout pvinis/master
+# git merge master
 
-# skip keyboards, only copy over mine
-# skip layouts
-# skip users
-# rsync -r $BASE/ $MINE  \
-#  --exclude='.git'      \
-#  --exclude='keyboards' \
-#  --exclude='layouts'   \
-#  --exclude='users'
+# only copy over my stuff
 
 # users
 rsync -r $MINE/users/pvinis/ $BASE/users/pvinis

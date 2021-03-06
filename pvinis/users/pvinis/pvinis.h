@@ -5,25 +5,23 @@
 
 // My own keycodes.
 enum userspace_custom_keycodes {
-  PV_ = SAFE_RANGE,
+    PV_ = SAFE_RANGE,
 
-  PV_VRSN, // Print firmware version.
-  PV_MAKE, // Print the make command of the keyboard.
-  PV_FLSH, // Reset keyboard.
-  PV_ERST, // Reset EEPOM.
+    PV_VRSN,  // Print firmware version.
+    PV_MAKE,  // Print the make command of the keyboard.
+    PV_FLSH,  // Reset keyboard.
 
-  PV_SSNC, // Play Sonic Ring.
-  PV_SCIN, // Play Coin Sound.
+    PV_SSNC,  // Play Sonic Ring.
+    PV_SCIN,  // Play Coin Sound.
 
-	PV_RNDK, // Generate random base64 key.
-  PV_TEST, // For quick testing purposes.
+    PV_TEST,  // For quick testing purposes.
 
-  PV_SAFE_RANGE, // Used for extra keycodes in individual keymaps.
+    PV_SAFE_RANGE,  // Used for extra keycodes in individual keymaps.
 };
 
 enum tap_dance_indexes {
-  // tap dance
-  TD_FLSH, // flash keyboard (as if the physical flash key was pressed)
+    // tap dance
+    TD_FLSH,  // flash keyboard (as if the physical flash key was pressed)
 };
 
 #define ALLM(kc) LCAG(kc)           // Easier name for left ctrl-alt-gui.
@@ -34,17 +32,16 @@ enum tap_dance_indexes {
 
 // Layers.
 enum {
-  LR_BASE = 0, // used for basic keys like the surrounding ctrl, cmd, etc
+    LR_BASE = 0,  // used for basic keys like the surrounding ctrl, cmd, etc
 
-  LR_QWERTY,
-  LR_CARPALX,
-  LR_GAME1,   // game layout (space on the left thumb, no modifiers, etc)
-  LR_GAME2,   // game layout (space on the left thumb, no modifiers, etc, arrows)
+    LR_QWERTY,
+    LR_CARPALX,
+    LR_GAME1,  // game layout (space on the left thumb, no modifiers, etc)
+    LR_GAME2,  // game layout (space on the left thumb, no modifiers, etc, arrows)
 
-  LR_SYMBOL, // symbol input (!, @, #, etc)
-  LR_SYSCTL, // system control (music, volume, keyboard flash, etc)
-  LR_KBCTL,  // keyboard control (version, make, flash, etc)
-
+    LR_SYMBOL,  // symbol input (!, @, #, etc)
+    LR_SYSCTL,  // system control (music, volume, keyboard flash, etc)
+    LR_KBCTL,   // keyboard control (version, make, flash, etc)
 };
 
 
@@ -166,7 +163,7 @@ enum {
 #define __________________KBCTL_L3_________________  RGB_MOD, RGB_VAD, XXXXXXX, XXXXXXX, XXXXXXX
 
 #define __________________KBCTL_R1_________________  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
-#define __________________KBCTL_R2_________________  XXXXXXX, PV_VRSN, PV_MAKE, PV_FLSH, PV_ERST
+#define __________________KBCTL_R2_________________  XXXXXXX, PV_VRSN, PV_MAKE, PV_FLSH, XXXXXXX
 #define __________________KBCTL_R3_________________  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
 
 // We need wrappers in order for these definitions, because they need to be expanded before being used as arguments to the LAYOUT_xxx macro.
@@ -175,5 +172,5 @@ enum {
 
 
 // Extra stuff that might be needed.
-void keyboard_post_init_user_keymap(void);
+void     keyboard_post_init_user_keymap(void);
 uint32_t layer_state_set_user_keymap(uint32_t state);

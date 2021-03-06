@@ -70,7 +70,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB , ___________________________________________,                        ___________________________________________, KC_DEL ,
         PV_ESCC, ___________________________________________,                        ___________________________________________, KC_ENT ,
         KC_LSFT, ___________________________________________, _______,      _______, _______, _______, _______, _______, _______, KC_RSFT,
-                                            KC_LGUI, SYMBOL , KC_BSPC,      KC_SPC , SYSCTL , KC_RALT
+                                            KC_LGUI, SYMBOL , KC_BSPC,      KC_SPC , SYSCTL , SYSCTL2
         // clang-format on
         ),
 
@@ -136,6 +136,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // clang-format on
         ),
 
+    [LR_SYSCTL2] = LAYOUT_wrapper(
+        // clang-format off
+        _______, ___________________________________________,                        ___________________________________________, _______,
+        _______, ___________________________________________,                        ___________________________________________, _______,
+        _______, ___________________________________________,                        ___________________________________________, _______,
+        _______, ___________________________________________, _______,      _______, ________________SYSCTL2_R3_________________, _______,
+                                            _______, _______, _______,      _______, _______, _______
+        // clang-format on
+        ),
+
     [LR_KBCTL] = LAYOUT_wrapper(
         // clang-format off
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
@@ -146,13 +156,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // clang-format on
         ),
 
-    [LR_GAME1] = LAYOUT_wrapper(
+    [LR_WARZONE] = LAYOUT_wrapper(
         // clang-format off
-        _______, ________________NUMBERS_L__________________,                        ________________NUMBERS_R__________________, KC_BSPC,
-        _______, _________________QWERTY_L1_________________,                        _________________QWERTY_R1_________________, QWERTY ,
-        KC_ESC , _________________QWERTY_L2_________________,                        _________________QWERTY_R2_________________, _______,
-        _______, _________________QWERTY_L3_________________, _______,      _______, _________________QWERTY_R3_________________, _______,
-                                        _______, _______, KC_SPC ,      _______, _______, _______
+        _______, ___________________________________________,                        ___________________________________________, _______,
+        _______, ___________________________________________,                        ___________________________________________, _______,
+        KC_LCTL, ___________________________________________,                        ___________________________________________, _______,
+        _______, ___________________________________________, KC_P   ,      _______, ___________________________________________, _______,
+                                            KC_SPC , KC_LALT, KC_M   ,      _______, _______, _______
         // clang-format on
         ),
 
@@ -170,13 +180,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 #ifdef ENCODER_ENABLE
 void encoder_update_user(uint8_t index, bool clockwise) {
-    // if (index == 0) { /* First encoder */
+    if (layer_state_is(LR_WARZONE)) {//highest_layer?
+        tap_code(KC_ESC);
+        return;
+    }
+
     if (clockwise) {
         tap_code(KC_VOLU);
     } else {
         tap_code(KC_VOLD);
     }
-    // }
 }
 #endif
 
@@ -193,6 +206,7 @@ bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
 
 // keyboard initialization
 void keyboard_post_init_user_keymap(void) {
+    // run on qwerty by default, after base is inited
     layer_on(LR_QWERTY);
     #ifdef AUDIO_ENABLE
         PLAY_SONG(song_qwerty);

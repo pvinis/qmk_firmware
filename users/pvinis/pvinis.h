@@ -37,11 +37,13 @@ enum {
 
     LR_QWERTY,
     LR_CARPALX,
-    LR_GAME1,  // game layout (space on the left thumb, no modifiers, etc)
-    LR_GAME2,  // game layout (space on the left thumb, no modifiers, etc, arrows)
+    LR_GAME1,    // game layout (space on the left thumb, no modifiers, etc)
+    LR_GAME2,    // game layout (space on the left thumb, no modifiers, etc, arrows)
+    LR_WARZONE,  // game layout for warzone
 
     LR_SYMBOL,  // symbol input (!, @, #, etc)
     LR_SYSCTL,  // system control (music, volume, keyboard flash, etc)
+    LR_SYSCTL2, // system control (music, volume, keyboard flash, etc)
     LR_KBCTL,   // keyboard control (version, make, flash, etc)
 };
 
@@ -52,9 +54,11 @@ enum {
 #define CARPALX TO(LR_CARPALX)
 #define GAME1   TO(LR_GAME1)
 #define GAME2   TO(LR_GAME2)
+#define WARZONE TO(LR_WARZONE)
 
 #define SYMBOL  MO(LR_SYMBOL)
 #define SYSCTL  MO(LR_SYSCTL)
+#define SYSCTL2 MO(LR_SYSCTL2)
 #define KBCTL   MO(LR_KBCTL)
 
 
@@ -148,9 +152,11 @@ enum {
 #define _________________SYSCTL_L3_________________  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX    , KC_MS_WH_DOWN
 
 //                                                    vol v                                                 ctl v
-#define _________________SYSCTL_R1_________________  KC_MUTE , KC_HOME , KC_UP   , KC_END                 , PV_LOCK
-#define _________________SYSCTL_R2_________________  KC_VOLU , KC_LEFT , KC_DOWN , KC_RGHT /* < arrows */ , KC_SLEP
-#define _________________SYSCTL_R3_________________  KC_VOLD , KC_MPRV , KC_MPLY , KC_MNXT /* < music */  , KC_PWR
+#define _________________SYSCTL_R1_________________  KC_MUTE, KC_HOME, KC_UP  , KC_END                 , PV_LOCK
+#define _________________SYSCTL_R2_________________  KC_VOLU, KC_LEFT, KC_DOWN, KC_RGHT /* < arrows */ , KC_SLEP
+#define _________________SYSCTL_R3_________________  KC_VOLD, KC_MPRV, KC_MPLY, KC_MNXT /* < music */  , KC_PWR
+
+#define ________________SYSCTL2_R3_________________  _______, QWERTY , WARZONE, _______, _______
 
 // ,-----+-----+-----+-----+-----,   ,-----+-----+-----+-----+-----,
 // |GAME |CRPLX|XXXXX|XXXXX|XXXXX|   |XXXXX|XXXXX|XXXXX|XXXXX|XXXXX|

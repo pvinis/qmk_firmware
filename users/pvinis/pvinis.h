@@ -46,6 +46,8 @@ enum {
     LR_SYSCTL,  // system control (music, volume, keyboard flash, etc)
     LR_SYSCTL2, // system control (music, volume, keyboard flash, etc)
     LR_KBCTL,   // keyboard control (version, make, flash, etc)
+
+    LR_SAFE_RANGE, // Used for extra layers in individual keymaps.
 };
 
 

@@ -26,7 +26,7 @@
 
 // layers
 enum {
-    MOUSE = 8,
+    MOUSE = LR_SAFE_RANGE,
 };
 
 // extra keys

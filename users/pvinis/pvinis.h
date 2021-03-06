@@ -29,6 +29,7 @@ enum tap_dance_indexes {
 #define PV_ESCC  CTL_T(KC_ESC)      // esc on tap, ctrl on hold.
 #define PV_LOCK  LCTL(LSFT(KC_PWR)) // Lock computer.
 #define TD_3FLS  TD(TD_FLSH)        // Tap dance 3 times for flash.
+#define PV_CTLALTDEL LCTL(LALT(KC_DEL))
 
 
 // Layers.
@@ -156,7 +157,7 @@ enum {
 #define _________________SYSCTL_R2_________________  KC_VOLU, KC_LEFT, KC_DOWN, KC_RGHT /* < arrows */ , KC_SLEP
 #define _________________SYSCTL_R3_________________  KC_VOLD, KC_MPRV, KC_MPLY, KC_MNXT /* < music */  , KC_PWR
 
-#define ________________SYSCTL2_R3_________________  _______, QWERTY , WARZONE, _______, _______
+#define ________________SYSCTL2_R3_________________  _______, QWERTY , WARZONE, _______, PV_CTLALTDEL
 
 // ,-----+-----+-----+-----+-----,   ,-----+-----+-----+-----+-----,
 // |GAME |CRPLX|XXXXX|XXXXX|XXXXX|   |XXXXX|XXXXX|XXXXX|XXXXX|XXXXX|

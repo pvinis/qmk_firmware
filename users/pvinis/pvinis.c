@@ -35,23 +35,25 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             return false;
 
-        case PV_MAKE:
-            // make ergodox_ez:pvinis:teensy
+        case PV_CMPL:
             if (!record->event.pressed) {
                 SEND_STRING(
-                        "make " QMK_KEYBOARD ":" QMK_KEYMAP
-                    #if (defined(BOOTLOADER_DFU) || defined(BOOTLOADER_LUFA_DFU) || defined(BOOTLOADER_QMK_DFU))
-                        ":dfu"
-                    #elif defined(BOOTLOADER_HALFKAY)
-                        ":teensy"
-                    #elif defined(BOOTLOADER_CATERINA)
-                        ":avrdude"
-                    #endif
-                SS_TAP(X_ENTER));
+                    "qmk compile --keyboard " QMK_KEYBOARD " --keymap " QMK_KEYMAP
+                    SS_TAP(X_ENTER)
+                );
             }
             return false;
 
-        case PV_FLSH:
+        case PV_MAKE:
+            if (!record->event.pressed) {
+                SEND_STRING(
+                    "qmk flash --keyboard " QMK_KEYBOARD " --keymap " QMK_KEYMAP
+                    SS_TAP(X_ENTER)
+                );
+            }
+            return false;
+
+        case PV_RST:
             reset_keyboard();
             return false;
 

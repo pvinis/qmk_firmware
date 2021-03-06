@@ -12,6 +12,7 @@
 //                    |    |    |    |      │    │    │    │
 //                    `----+---------'      └────┴────┴────┘
 
+
 #include QMK_KEYBOARD_H
 #include "pvinis.h"
 //#include "iris.h"
@@ -19,7 +20,7 @@
 //#include "eeconfig.h"
 
 #ifdef AUDIO_ENABLE
-#    include "audio.h"
+    #include "audio.h"
 #endif
 
 #ifdef AUDIO_ENABLE
@@ -47,6 +48,7 @@
 // RGB_MODE_KNIGHT
 //   float n78[][2] = SONG(KATAMARI_ROLLING_STAR);
 #endif
+
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -143,17 +145,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // clang-format on
         ),
 
-    // ,-----------------------------.              ,-----------------------------.
-    // |    |       NUMBERS_L        |              |         NUMBERS_R      |    |
-    // |----+----+----+----+----+----|              |----+----+----+----+----+----|
-    // |    |                        |              |                        |    |
-    // |----+                        |              |                        +----|
-    // |ESC |       QWERTY_L         |              |         QWERTY_R       |    |
-    // |----+                        +----.    ,----|                        +----|
-    // |    |                        |    |    |    |                        |    |
-    // `-------------------+----+----+----/    \----+----+----+-------------------'
-    //                    |    |SPC |    |      |    |    |    |
-    //                    `----+---------'      `--------------'
     [LR_GAME1] = LAYOUT_wrapper(
         // clang-format off
         _______, ________________NUMBERS_L__________________,                        ________________NUMBERS_R__________________, KC_BSPC,
@@ -175,6 +166,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ),
 };
 
+
 #ifdef ENCODER_ENABLE
 void encoder_update_user(uint8_t index, bool clockwise) {
     // if (index == 0) { /* First encoder */
@@ -187,11 +179,12 @@ void encoder_update_user(uint8_t index, bool clockwise) {
 }
 #endif
 
+
 bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-#ifdef AUDIO_ENABLE
-// case PV_S04: if (record->event.pressed) PLAY_SONG(n04); return false; break;
-#endif
+        #ifdef AUDIO_ENABLE
+            // case PV_S04: if (record->event.pressed) PLAY_SONG(n04); return false; break;
+        #endif
     }
     return true;  // Process everything else normally
 }

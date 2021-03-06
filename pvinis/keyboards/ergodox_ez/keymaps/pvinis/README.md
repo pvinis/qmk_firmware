@@ -1,4 +1,4 @@
-From https://github.com/also-pvinis/my_qmk_firmware and synced to the regular qmk repo.
+From https://github.com/pvinis/qmk_firmware and synced to the regular qmk repo.
 
 pvinis' keymap
 ==============

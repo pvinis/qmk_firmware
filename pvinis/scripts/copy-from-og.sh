@@ -5,11 +5,13 @@ set -Eeuo pipefail
 BASE=.
 MINE=./pvinis
 
-git checkout master
-git pull
-git rev-parse HEAD > $MINE/latest-copy-at-commit.txt
+git rev-parse HEAD > $MINE/scripts/latest-copy-at-commit.txt
 
 # only copy over my files
+
+# user
+rsync -r $BASE/users/pvinis $MINE/users/
+
 # ergodox_ez
 rsync -r $BASE/keyboards/ergodox_ez/keymaps/pvinis/ $MINE/keyboards/ergodox_ez/keymaps/pvinis
 

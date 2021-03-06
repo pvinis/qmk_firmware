@@ -2,14 +2,12 @@
 set -Eeuo pipefail
 
 
-BASE=~/Source/contrib/qmk_firmware
-MINE=~/Source/pvinis/my_qmk_firmware
-
-cd $BASE
+BASE=.
+MINE=./pvinis
 
 git checkout master
 git pull
-git rev-parse HEAD > $MINE/pvinis/latest-copy-at-commit.txt
+git rev-parse HEAD > $MINE/latest-copy-at-commit.txt
 
 # skip keyboards, only copy over mine
 # skip layouts

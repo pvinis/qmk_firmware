@@ -180,7 +180,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 #ifdef ENCODER_ENABLE
 void encoder_update_user(uint8_t index, bool clockwise) {
-    if (layer_state_is(LR_WARZONE)) {//highest_layer?
+    if (layer_state_is(LR_WARZONE)) {
         tap_code(KC_ESC);
         return;
     }

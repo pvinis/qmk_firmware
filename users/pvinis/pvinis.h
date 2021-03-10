@@ -159,7 +159,7 @@ enum {
 #define _________________SYSCTL_R2_________________  KC_VOLU, KC_LEFT, KC_DOWN, KC_RGHT /* < arrows */ , KC_SLEP
 #define _________________SYSCTL_R3_________________  KC_VOLD, KC_MPRV, KC_MPLY, KC_MNXT /* < music */  , KC_PWR
 
-#define ________________SYSCTL2_R3_________________  KC_W   , QWERTY , WARZONE, _______, PV_CTLALTDEL
+#define ________________SYSCTL2_R3_________________  KC_W   , QWERTY , WARZONE, GAME2  , PV_CTLALTDEL
 
 // ,-----+-----+-----+-----+-----,   ,-----+-----+-----+-----+-----,
 // |GAME |CRPLX|XXXXX|XXXXX|XXXXX|   |XXXXX|XXXXX|XXXXX|XXXXX|XXXXX|

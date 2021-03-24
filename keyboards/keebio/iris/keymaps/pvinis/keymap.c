@@ -1,5 +1,5 @@
-// pvinis iris
-// make keebio/iris/rev2:pvinis:avrdude
+// pvinis iris rev2
+// qmk flash --keyboard keebio/iris/rev2 --keymap pvinis
 // ,-----------------------------.              ┌────┬────┬────┬────┬────┬────┐
 // |    |    |    |    |    |    |              │    │    │    │    │    │    │
 // |----+----+----+----+----+----|              ├────┼────┼────┼────┼────┼────┤

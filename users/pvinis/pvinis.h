@@ -167,7 +167,7 @@ enum {
 // ,-----+-----+-----+-----+-----,   ,-----+-----+-----+-----+-----,
 // |GAME |CRPLX|XXXXX|XXXXX|XXXXX|   |XXXXX|XXXXX|XXXXX|XXXXX|XXXXX|
 // ,-----+-----+-----x-----x-----,   ,-----x-----x-----+-----+-----,
-// |XXXXX|XXXXX|XXXXX|XXXXX|XXXXX|   |XXXXX|VERSN|MAKE |FLASH|XXXXX|
+// |XXXXX|XXXXX|XXXXX|XXXXX|XXXXX|   |XXXXX|VERSN|MAKE |RESET|XXXXX|
 // ,-----+-----+-----x-----x-----,   ,-----x-----x-----+-----+-----,
 // |XXXXX|XXXXX|XXXXX|XXXXX|XXXXX|   |XXXXX|XXXXX|XXXXX|XXXXX|XXXXX|
 // ,-----+-----+-----+-----+-----,   ,-----+-----+-----+-----+-----,

@@ -162,7 +162,7 @@ enum {
 #define ________________SYSCTL2_R0_________________  _______, KC_KP_7, KC_KP_8, KC_KP_9, _______
 #define ________________SYSCTL2_R1_________________  _______, KC_KP_4, KC_KP_5, KC_KP_6, _______
 #define ________________SYSCTL2_R2_________________  KC_KP_0, KC_KP_1, KC_KP_2, KC_KP_3, _______
-#define ________________SYSCTL2_R3_________________  _______, QWERTY , WARZONE, GAME2  , PV_CTLALTDEL
+#define ________________SYSCTL2_R3_________________  HYPR(KC_8), QWERTY , WARZONE, GAME2  , PV_CTLALTDEL
 
 // ,-----+-----+-----+-----+-----,   ,-----+-----+-----+-----+-----,
 // |GAME |CRPLX|XXXXX|XXXXX|XXXXX|   |XXXXX|XXXXX|XXXXX|XXXXX|XXXXX|

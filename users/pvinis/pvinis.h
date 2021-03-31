@@ -15,6 +15,8 @@ enum userspace_custom_keycodes {
     PV_SSNC,  // Play Sonic Ring.
     PV_SCIN,  // Play Coin Sound.
 
+    PV_HMDP,  // Dump heatmap data.
+
     PV_TEST,  // For quick testing purposes.
 
     PV_SAFE_RANGE,  // Used for extra keycodes in individual keymaps.
@@ -127,13 +129,13 @@ enum {
 #define ________________CARPALX_R3_________________  KC_K   , KC_P   , KC_COMM, KC_DOT , KC_SLSH
 
 // ,-----+-----+-----+-----+-----,   ,-----+-----+-----+-----+-----,
-// |  !  |  @  |  {  |  }  |  _  |   |  \  |     |  `  |     |     |
+// |  !  | tab |  {  |  }  |  _  |   |  \  |     |  `  |     |     |
 // ,-----+-----+-----x-----x-----,   ,-----x-----x-----+-----+-----,
 // |  #  |  $  |  (  |  )  |  -  |   |  =  |  &  |  '  |  "  |  |  |
 // ,-----+-----+-----x-----x-----,   ,-----x-----x-----+-----+-----,
 // |  %  |  ^  |  [  |  ]  |  +  |   |  *  |  ~  |  <  |  >  |  /  |
 // ,-----+-----+-----+-----+-----,   ,-----+-----+-----+-----+-----,
-#define _________________SYMBOL_L1_________________  KC_EXLM, KC_AT  , KC_LCBR, KC_RCBR, KC_UNDS
+#define _________________SYMBOL_L1_________________  KC_EXLM, KC_TAB , KC_LCBR, KC_RCBR, KC_UNDS
 #define _________________SYMBOL_L2_________________  KC_HASH, KC_DLR , KC_LPRN, KC_RPRN, KC_MINS
 #define _________________SYMBOL_L3_________________  KC_PERC, KC_CIRC, KC_LBRC, KC_RBRC, KC_PLUS
 
@@ -175,7 +177,7 @@ enum {
 #define __________________KBCTL_L2_________________  RGB_TOG, RGB_VAI, XXXXXXX, XXXXXXX, XXXXXXX
 #define __________________KBCTL_L3_________________  RGB_MOD, RGB_VAD, XXXXXXX, XXXXXXX, XXXXXXX
 
-#define __________________KBCTL_R1_________________  XXXXXXX, XXXXXXX, PV_CMPL, XXXXXXX, XXXXXXX
+#define __________________KBCTL_R1_________________  XXXXXXX, XXXXXXX, PV_CMPL, PV_HMDP, XXXXXXX
 #define __________________KBCTL_R2_________________  XXXXXXX, PV_VRSN, PV_MAKE, PV_RST , XXXXXXX
 #define __________________KBCTL_R3_________________  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
 

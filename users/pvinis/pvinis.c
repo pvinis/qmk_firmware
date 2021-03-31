@@ -29,6 +29,10 @@ bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
 // Handle my own keycodes.
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+        case PV_HMDP:
+            SEND_STRING("LETSGO");
+            return false;
+
         case PV_VRSN:
             if (record->event.pressed) {
                 SEND_STRING(QMK_KEYBOARD "/" QMK_KEYMAP " @ " QMK_VERSION);

@@ -10,3 +10,7 @@
 #ifdef ENCODER_ENABLE
     #define ENCODER_RESOLUTIONS { 4, 2, 2 }
 #endif
+
+#ifdef RGB_MATRIX_ENABLE
+#    define RGB_MATRIX_KEYPRESSES
+#endif

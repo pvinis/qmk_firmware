@@ -32,6 +32,12 @@ enum tap_dance_indexes {
 #define PV_LOCK  LCTL(LSFT(KC_PWR)) // Lock computer.
 #define TD_3FLS  TD(TD_FLSH)        // Tap dance 3 times for flash.
 #define PV_CTLALTDEL LCTL(LALT(KC_DEL))
+#define PV_SPLY  HYPR(KC_1)
+#define PV_SNXT  HYPR(KC_2)
+#define PV_SPRV  HYPR(KC_3)
+#define PV_SMUT  HYPR(KC_4)
+#define PV_SVUP  HYPR(KC_5)
+#define PV_SVDN  HYPR(KC_6)
 
 
 // Layers.

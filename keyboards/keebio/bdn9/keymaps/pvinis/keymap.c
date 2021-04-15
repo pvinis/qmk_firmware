@@ -41,9 +41,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // │    │    │    │
     // └────┴────┴────┘
     [LR_SYMBOL] = LAYOUT(
-        XXXXXXX, XXXXXXX, XXXXXXX,
+        XXXXXXX, PV_SMUT, XXXXXXX,
         _______, XXXXXXX, _______,
-        XXXXXXX, XXXXXXX , XXXXXXX
+        PV_SPRV, PV_SPLY, PV_SNXT
     ),
 
     // ┌────┬────┬────┐
@@ -78,21 +78,25 @@ void encoder_update_user(uint8_t index, bool clockwise) {
         if (clockwise) {
             if (layer_state_is(LR_SYMBOL)) {
                 // rgblight_increase_hue();
+                tap_code16(PV_SVUP);
             } else {
                 tap_code(KC_VOLU);
             }
         } else {
             if (layer_state_is(LR_SYMBOL)) {
                 // rgblight_decrease_hue();
+                tap_code16(PV_SVDN);
             } else {
                 tap_code(KC_VOLD);
             }
         }
     } else if (index == ROT_RIGHT) {
         if (clockwise) {
-            tap_code(KC_COMMA);
+            // tap_code(KC_COMMA);
+            tap_code16(PV_SVDN);
         } else {
-            tap_code(KC_DOT);
+            // tap_code(KC_DOT);
+            tap_code16(PV_SVUP);
         }
     }
 }

@@ -190,6 +190,7 @@ enum {
 // We need wrappers in order for these definitions, because they need to be expanded before being used as arguments to the LAYOUT_xxx macro.
 #define LAYOUT_ergodox_pretty_wrapper(...)  LAYOUT_ergodox_pretty(__VA_ARGS__)
 #define LAYOUT_wrapper(...)                 LAYOUT(__VA_ARGS__)
+#define LAYOUT_split_3x5_3_wrapper(...)     LAYOUT_split_3x5_3(__VA_ARGS__)
 
 
 // Extra stuff that might be needed.

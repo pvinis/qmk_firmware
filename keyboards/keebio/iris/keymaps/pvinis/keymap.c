@@ -179,10 +179,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
 #ifdef ENCODER_ENABLE
-void encoder_update_user(uint8_t index, bool clockwise) {
+bool encoder_update_user(uint8_t index, bool clockwise) {
     if (layer_state_is(LR_WARZONE) || layer_state_is(LR_GAME2)) {
         tap_code(KC_ESC);
-        return;
+        return true;
     }
 
     if (clockwise) {
@@ -190,6 +190,7 @@ void encoder_update_user(uint8_t index, bool clockwise) {
     } else {
         tap_code(KC_VOLD);
     }
+    return true;
 }
 #endif
 

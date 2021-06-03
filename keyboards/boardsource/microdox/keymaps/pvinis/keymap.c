@@ -16,6 +16,29 @@
 #include "split_util.h"
 
 
+
+
+
+
+
+
+
+enum layers {
+    _QWERTY,
+    _RAISE,
+    _LOWER,
+    _ADJUST
+};
+
+#define KC_CTSC RCTL_T(KC_SCLN)
+#define LOWER_SPC LT(_LOWER, KC_SPC)
+#define RASE_BACK LT(_RAISE, KC_BSPC)
+#define SHFT_Z MT(MOD_LSFT, KC_Z)
+#define SHIFT_SLASH MT(MOD_RSFT,KC_SLSH)
+#define RASE_ENT LT(_RAISE, KC_ENT)
+#define CTRL_A MT(MOD_LCTL,KC_A)
+#define PREVWINDOW MT(MOD_LCTL, KC_LEFT)
+#define NEXTWINDOW MT(MOD_LCTL, KC_RGHT)
 #define SCTLSPC LT(LR_SYSCTL, KC_SPC)
 #define SBLBSPC LT(LR_SYMBOL, KC_BSPC)
 
@@ -34,6 +57,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _________________QWERTY_L3_________________,      _________________QWERTY_R3_________________,
                           _______, _______, _______,      _______, _______, _______
   ),
+
+//   [_QWERTY] = LAYOUT_split_3x5_3(
+//         KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,             KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,
+//       CTRL_A,    KC_S,    KC_D,    KC_F,    KC_G,             KC_H,    KC_J,    KC_K,    KC_L, KC_CTSC,
+//      SHFT_Z,    KC_X,    KC_C,    KC_V,    KC_B,             KC_N,    KC_M, KC_COMM,  KC_DOT, SHIFT_SLASH,
+//                        MO(_LOWER),MO(_RAISE), RASE_ENT,       MO(_LOWER),MO(_RAISE), KC_TAB
+//     ),
+//   [_RAISE] = LAYOUT_split_3x5_3(
+//         KC_1,    KC_2,    KC_3,    KC_4,    KC_5,           KC_6,    KC_7,    KC_8,    KC_9,    KC_0,
+//       KC_ESC, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,            KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, KC_QUOT,
+//      KC_LSFT, KC_GRV, PREVWINDOW, NEXTWINDOW, XXXXXXX,          KC_MINS,  KC_EQL, KC_LBRC, KC_RBRC, KC_BSLS,
+//                          _______, KC_LGUI, KC_ENT,           _______,  _______, _______
+//                          ),
+//   [_LOWER] = LAYOUT_split_3x5_3(
+//        KC_ESC,   XXXXXXX, XXXXXXX, XXXXXXX, RGB_TOG,            KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, KC_DQT,
+//        KC_ESC,   XXXXXXX, XXXXXXX, XXXXXXX, RGB_TOG,            KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, KC_DQT,
+//        KC_ESC,   KC_TILD, PREVWINDOW, NEXTWINDOW, RGB_MODE_FORWARD,   KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE,
+//                             _______,  _______,  KC_ENT,         _______,  _______, _______
+//                             ),
 
     [LR_SYMBOL] = LAYOUT_split_3x5_3_wrapper(
         _________________SYMBOL_L1_________________,      _________________SYMBOL_R1_________________,
@@ -84,6 +126,32 @@ static void render_logo(void) {
 
 static void render_status(void) {
    switch (get_highest_layer(layer_state)) {
+    // case _QWERTY:
+    //   oled_write_P(PSTR("Current time:\n"), false);
+    //   oled_write_P(PSTR("\n"), false);
+    //   oled_write_P(PSTR("FIVE o'clock\n"), false);
+    //   oled_write_P(PSTR("\n"), false);
+    //   break;
+    // case _RAISE:
+    //   oled_write_P(PSTR("B R L A O\n"), false);
+    //   oled_write_P(PSTR("  ^\n"), false);
+    //   oled_write_P(PSTR("Layer: Raise\n"), false);
+    //   oled_write_P(PSTR("Current time:\n"), false);
+    //   oled_write_P(PSTR("\n"), false);
+    //   oled_write_P(PSTR("SEX  o'clock\n"), false);
+    //   oled_write_P(PSTR("~~ LET'S GO ~~"), false);
+    //   break;
+    // case LR_SYMBOL:
+    //   oled_write_P(PSTR("Current time:\n"), false);
+    //   oled_write_P(PSTR("\n"), false);
+    //   oled_write_P(PSTR("SEX  o'clock\n"), false);
+    //   oled_write_P(PSTR("\n"), false);
+    //   break;
+    // case LR_SYSCTL:
+    //   oled_write_P(PSTR("B R L A O\n"), false);
+    //   oled_write_P(PSTR("      ^\n"), false);
+    //   oled_write_P(PSTR("Layer: Adjust\n"), false);
+    //   break;
     case LR_WARZONE:
       oled_write_P(PSTR("WHERE\n"), false);
       oled_write_P(PSTR("WE\n"), false);

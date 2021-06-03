@@ -11,6 +11,7 @@ SRC += pvinis.c # add userspace file
 # MOUSEKEY_ENABLE  = yes
 # LEEP_LED_ENABLE  = no  # no led blinking while sleeping
 # KRO_ENABLE       = yes
+DYNAMIC_MACRO_ENABLE = yes
 
 ## Some extra stuff to make firmware smaller.
 

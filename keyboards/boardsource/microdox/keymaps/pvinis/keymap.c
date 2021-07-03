@@ -100,8 +100,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [LR_WARZONE] = LAYOUT_split_3x5_3_wrapper(
         // could change E and 3 to something else
-        KC_TAB , KC_Q, KC_W, KC_E, KC_R,      KC_3, KC_6   , _______, BASE   , KC_ENT,
-        KC_LCTL, KC_A, KC_S, KC_D, KC_F,      KC_4, _______, _______, _______, KC_ENT,
+        KC_TAB , KC_Q, KC_W, KC_E, KC_R,      KC_3, KC_6   , _______, BASE   , KC_ESC ,
+        KC_LCTL, KC_A, KC_S, KC_D, KC_F,      KC_4, _______, _______, _______, KC_ENT ,
         KC_LSFT, KC_3, KC_X, KC_C, KC_4,      KC_5, _______, _______, _______, KC_LWIN,
                   KC_M, KC_LALT, KC_SPC,      _______, _______, _______
     ),

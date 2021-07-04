@@ -3,11 +3,17 @@
 
 
 #ifdef AUDIO_ENABLE
-    #include "audio.h"
+#    include "audio.h"
 
-    float song_sonic_ring[][2] = SONG(SONIC_RING);
-    float song_coin_sound[][2] = SONG(COIN_SOUND);
-    float song_test[][2]       = SONG(QWERTY_SOUND);
+float song_sonic_ring[][2] = SONG(SONIC_RING);
+float song_coin_sound[][2] = SONG(COIN_SOUND);
+float song_test[][2]       = SONG(QWERTY_SOUND);
+#endif
+
+#ifdef RGBLIGHT_ENABLE
+
+bool showing_knight = false;
+
 #endif
 
 
@@ -20,10 +26,7 @@ uint32_t layer_state_set_user(uint32_t state) {
 
 
 // functions for the individual keymaps to implement if they need something extra
-__attribute__((weak))
-bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
-  return true;
-}
+__attribute__((weak)) bool process_record_keymap(uint16_t keycode, keyrecord_t *record) { return true; }
 
 
 // Handle my own keycodes.
@@ -41,19 +44,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
         case PV_CMPL:
             if (!record->event.pressed) {
-                SEND_STRING(
-                    "qmk compile --keyboard " QMK_KEYBOARD " --keymap " QMK_KEYMAP
-                    SS_TAP(X_ENTER)
-                );
+                SEND_STRING("qmk compile --keyboard " QMK_KEYBOARD " --keymap " QMK_KEYMAP SS_TAP(X_ENTER));
             }
             return false;
 
         case PV_MAKE:
             if (!record->event.pressed) {
-                SEND_STRING(
-                    "qmk flash --keyboard " QMK_KEYBOARD " --keymap " QMK_KEYMAP
-                    SS_TAP(X_ENTER)
-                );
+                SEND_STRING("qmk flash --keyboard " QMK_KEYBOARD " --keymap " QMK_KEYMAP SS_TAP(X_ENTER));
             }
             return false;
 
@@ -63,25 +60,40 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
         case PV_SSNC:
             if (record->event.pressed) {
-                #ifdef AUDIO_ENABLE
-                    PLAY_SONG(song_sonic_ring);
-                #endif
+#ifdef AUDIO_ENABLE
+                PLAY_SONG(song_sonic_ring);
+#endif
             }
             return false;
 
         case PV_SCIN:
             if (record->event.pressed) {
-                #ifdef AUDIO_ENABLE
-                    PLAY_SONG(song_coin_sound);
-                #endif
+#ifdef AUDIO_ENABLE
+                PLAY_SONG(song_coin_sound);
+#endif
             }
             return false;
 
         case PV_TEST:
             if (record->event.pressed) {
-                #ifdef AUDIO_ENABLE
-                    PLAY_SONG(song_test);
-                #endif
+#ifdef AUDIO_ENABLE
+                PLAY_SONG(song_test);
+#endif
+            }
+            return false;
+
+        case PV_L_KNTTGL:
+            if (record->event.pressed) {
+#ifdef RGBLIGHT_ENABLE
+                if (showing_knight) {
+                    rgblight_sethsv(HSV_RED);
+                    rgblight_mode(RGBLIGHT_MODE_KNIGHT + 2);
+                } else {
+                    rgblight_sethsv(HSV_BLACK);
+                    rgblight_mode(RGBLIGHT_MODE_STATIC_LIGHT);
+                }
+                showing_knight = !showing_knight;
+#endif
             }
             return false;
     }
@@ -89,22 +101,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 }
 
 #ifdef TAP_DANCE_ENABLE
-    qk_tap_dance_action_t tap_dance_actions[] = {};
+qk_tap_dance_action_t tap_dance_actions[] = {};
 #endif
 
 #ifdef RGBLIGHT_ENABLE
-    void keyboard_post_init_rgb_light(void) {
-        rgblight_sethsv(HSV_GOLD);
-        rgblight_mode(RGBLIGHT_MODE_BREATHING);
-        // rgblight_mode(RGBLIGHT_MODE_KNIGHT+1);
-    }
+void keyboard_post_init_rgb_light(void) {
+    rgblight_sethsv(HSV_BLACK);
+    rgblight_mode(RGBLIGHT_MODE_STATIC_LIGHT);
+}
 #endif
 
 // Init stuff.
 void keyboard_post_init_user(void) {
-    #if defined(RGBLIGHT_ENABLE)
-        keyboard_post_init_rgb_light();
-    #endif
+#if defined(RGBLIGHT_ENABLE)
+    keyboard_post_init_rgb_light();
+#endif
     keyboard_post_init_user_keymap();
 }
 

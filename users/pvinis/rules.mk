@@ -4,16 +4,17 @@ SRC += pvinis.c # add userspace file
 ## Use the stuff below on the keyboard keymaps, not here.
 ## If they are used here, they will replace the keymap's rules, since this file is eval'd later.
 
+EXTRAKEY_ENABLE = yes
+
 # TAP_DANCE_ENABLE = yes
 # AUDIO_ENABLE     = yes # piezo speaker sounds
 # RGBLIGHT_ENABLE  = yes # rgb leds underlight
 # BACKLIGHT_ENABLE = no  # leds under keycaps
 # MOUSEKEY_ENABLE  = yes
-# LEEP_LED_ENABLE  = no  # no led blinking while sleeping
-# KRO_ENABLE       = yes
+# SLEEP_LED_ENABLE = no  # no led blinking while sleeping
 
 ## Some extra stuff to make firmware smaller.
 
-# LTO_ENABLE = yes
+LTO_ENABLE = yes
 # CONSOLE_ENABLE = no
 # COMMAND_ENABLE = no

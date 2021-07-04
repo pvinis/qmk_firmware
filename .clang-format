@@ -3,6 +3,7 @@ BasedOnStyle: Google
 AlignAfterOpenBracket: Align
 AlignConsecutiveAssignments: 'true'
 AlignConsecutiveDeclarations: 'true'
+AlignConsecutiveMacros: 'true'
 AlignOperands: 'true'
 AllowAllParametersOfDeclarationOnNextLine: 'false'
 AlwaysBreakAfterDefinitionReturnType: None
@@ -14,7 +15,7 @@ ColumnLimit: '1000'
 IndentCaseLabels: 'true'
 IndentPPDirectives: AfterHash
 IndentWidth: '4'
-MaxEmptyLinesToKeep: '1'
+MaxEmptyLinesToKeep: '2'
 PointerAlignment: Right
 SortIncludes: 'false'
 SpaceBeforeAssignmentOperators: 'true'

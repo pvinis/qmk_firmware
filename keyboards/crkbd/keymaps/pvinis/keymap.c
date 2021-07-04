@@ -25,141 +25,143 @@
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [LR_BASE] = LAYOUT_split_3x6_3_wrapper(
-    KC_TAB , ___________________________________________,    _______, _______, _______, _______, _______, _______,
-    PV_ESCC, _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______, KC_ENT ,
-    KC_LSFT, _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______, KC_RSFT,
-                               KC_LGUI, SYMBOL , KC_BSPC,    KC_SPC , SYSCTL , SYSCTL2
-  ),
+    [LR_BASE] = LAYOUT_split_3x6_3_wrapper(
+        // clang-format off
+        KC_TAB , ___________________________________________,    _______, _______, _______, _______, _______, _______,
+        PV_ESCC, _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______, KC_ENT ,
+        KC_LSFT, _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______, KC_RSFT,
+                                   KC_LGUI, SYMBOL , KC_BSPC,    KC_SPC , SYSCTL , SYSCTL2
+        // clang-format on
+        ),
 
-  [LR_QWERTY] = LAYOUT_split_3x6_3_wrapper(
-    _______, _________________QWERTY_L1_________________,    _________________QWERTY_R1_________________, _______,
-    _______, _____________MOD_QWERTY_L2_________________,    _________________QWERTY_R2_________________, _______,
-    _______, _________________QWERTY_L3_________________,    _________________QWERTY_R3_________________, _______,
-                               _______, _______, _______,    _______, _______, _______
-  ),
+    [LR_QWERTY] = LAYOUT_split_3x6_3_wrapper(
+        // clang-format off
+        _______, _________________QWERTY_L1_________________,    _________________QWERTY_R1_________________, _______,
+        _______, _____________MOD_QWERTY_L2_________________,    _________________QWERTY_R2_________________, _______,
+        _______, _________________QWERTY_L3_________________,    _________________QWERTY_R3_________________, _______,
+                                   _______, _______, _______,    _______, _______, _______
+        // clang-format on
+        ),
 
-  [LR_SYMBOL] = LAYOUT_split_3x6_3_wrapper(
-    _______, _________________SYMBOL_L1_________________,    _________________SYMBOL_R1_________________, _______,
-    _______, _________________SYMBOL_L2_________________,    _________________SYMBOL_R2_________________, _______,
-    _______, _________________SYMBOL_L3_________________,    _________________SYMBOL_R3_________________, _______,
-                               _______, _______, _______,    _______, _______, _______
-  ),
+    [LR_SYMBOL] = LAYOUT_split_3x6_3_wrapper(
+        // clang-format off
+        _______, _________________SYMBOL_L1_________________,    _________________SYMBOL_R1_________________, _______,
+        _______, _________________SYMBOL_L2_________________,    _________________SYMBOL_R2_________________, _______,
+        _______, _________________SYMBOL_L3_________________,    _________________SYMBOL_R3_________________, _______,
+                                   _______, _______, _______,    _______, _______, _______
+        // clang-format on
+        ),
 
-  [LR_SYSCTL] = LAYOUT_split_3x6_3_wrapper(
-    _______, ___________________________________________,    _________________SYSCTL_R1_________________, _______,
-    _______, ___________________________________________,    _________________SYSCTL_R2_________________, _______,
-    _______, ___________________________________________,    _________________SYSCTL_R3_________________, _______,
-                               _______, _______, _______,    _______, _______, _______
-  ),
+    [LR_SYSCTL] = LAYOUT_split_3x6_3_wrapper(
+        // clang-format off
+        _______, ___________________________________________,    _________________SYSCTL_R1_________________, _______,
+        _______, ___________________________________________,    _________________SYSCTL_R2_________________, _______,
+        _______, ___________________________________________,    _________________SYSCTL_R3_________________, _______,
+                                   _______, _______, _______,    _______, _______, _______
+        // clang-format on
+        ),
 
-  [LR_SYSCTL2] = LAYOUT_split_3x6_3_wrapper(
-    _______, ___________________________________________,    ________________SYSCTL2_R1_________________, _______,
-    _______, ___________________________________________,    ________________SYSCTL2_R2_________________, _______,
-    _______, ___________________________________________,    ________________SYSCTL2_R3_________________, _______,
-                               _______, _______, _______,    _______, _______, _______
-  ),
+    [LR_SYSCTL2] = LAYOUT_split_3x6_3_wrapper(
+        // clang-format off
+        _______, ___________________________________________,    ________________SYSCTL2_R1_________________, _______,
+        _______, ___________________________________________,    ________________SYSCTL2_R2_________________, _______,
+        _______, ___________________________________________,    ________________SYSCTL2_R3_________________, _______,
+                                   _______, _______, _______,    _______, _______, _______
+        // clang-format on
+        ),
 
-  [LR_KBCTL] = LAYOUT_split_3x6_3_wrapper(
-    _______, __________________KBCTL_L1_________________,    __________________KBCTL_R1_________________, _______,
-    _______, __________________KBCTL_L2_________________,    __________________KBCTL_R2_________________, _______,
-    _______, __________________KBCTL_L3_________________,    __________________KBCTL_R3_________________, _______,
-                               _______, _______, _______,    _______, _______, _______
-  ),
+    [LR_KBCTL] = LAYOUT_split_3x6_3_wrapper(
+        // clang-format off
+        _______, __________________KBCTL_L1_________________,    __________________KBCTL_R1_________________, _______,
+        _______, __________________KBCTL_L2_________________,    __________________KBCTL_R2_________________, _______,
+        _______, __________________KBCTL_L3_________________,    __________________KBCTL_R3_________________, _______,
+                                   _______, _______, _______,    _______, _______, _______
+        // clang-format on
+        ),
 
-  [LR_WARZONE] = LAYOUT_split_3x6_3_wrapper(
-      // WASD movement
-      // E melee (maybe use mouse?)
-      // R reload
-      // Q flash/heartbeat
-      // T, is it used? maybe replace with something else
-      // F, is it used? maybe replace with something else
-      // G, is it used? maybe replace with something else
-      // Z, is it used? maybe replace with something else
-      // X throw loadie
-      // C, is it used? maybe replace with something else
-      // V, is it used? maybe replace with something else
-      // 4 put armor plate
-      // M map
-      // Lalt ping
-    KC_TAB , KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   ,    KC_3   , KC_6   , _______, _______, BASE   , KC_ESC ,
-    KC_LCTL, KC_A   , KC_S   , KC_D   , KC_F   , KC_G   ,    KC_4   , _______, _______, _______, _______, KC_ENT ,
-    KC_LSFT, KC_Z   , KC_X   , KC_C   , KC_V   , KC_4   ,    KC_5   , _______, _______, _______, _______, KC_LWIN,
-                               KC_M   , KC_LALT, KC_SPC ,    _______, _______, _______
-  ),
+    [LR_WARZONE] = LAYOUT_split_3x6_3_wrapper(
+        // WASD movement
+        // E melee (maybe use mouse?)
+        // R reload
+        // Q flash/heartbeat
+        // T, is it used? maybe replace with something else
+        // F, is it used? maybe replace with something else
+        // G, is it used? maybe replace with something else
+        // Z, is it used? maybe replace with something else
+        // X throw loadie
+        // C, is it used? maybe replace with something else
+        // V, is it used? maybe replace with something else
+        // 4 put armor plate
+        // M map
+        // Lalt ping
+        // clang-format off
+        KC_TAB , KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   ,    KC_3   , KC_6   , _______, _______, BASE   , KC_ESC ,
+        KC_LCTL, KC_A   , KC_S   , KC_D   , KC_F   , KC_G   ,    KC_4   , _______, _______, _______, _______, KC_ENT ,
+        KC_LSFT, KC_Z   , KC_X   , KC_C   , KC_V   , KC_4   ,    KC_5   , _______, _______, _______, _______, KC_LWIN,
+                                   KC_M   , KC_LALT, KC_SPC ,    _______, _______, _______
+        // clang-format on
+        ),
 };
 
 
 #ifdef OLED_DRIVER_ENABLE
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
-
-  if (!is_keyboard_master()) {
-    return OLED_ROTATION_180; // flips the display 180 degrees if offhand
-  }
-  return rotation;
+    if (!is_keyboard_master()) return OLED_ROTATION_180;
+    return rotation;
 }
 
-void render_bootmagic_status(bool status) {
-    /* Show Ctrl-Gui Swap options */
-    static const char PROGMEM logo[][2][3] = {
-        {{0x97, 0x98, 0}, {0xb7, 0xb8, 0}},
-        {{0x95, 0x96, 0}, {0xb5, 0xb6, 0}},
-    };
-    if (status) {
-        oled_write_ln_P(logo[0][0], false);
-        oled_write_ln_P(logo[0][1], false);
-    } else {
-        oled_write_ln_P(logo[1][0], false);
-        oled_write_ln_P(logo[1][1], false);
+static void render_status(void) {
+    switch (get_highest_layer(layer_state)) {
+        case LR_WARZONE:
+            oled_write_P(PSTR("WHERE\n"), false);
+            oled_write_P(PSTR("WE\n"), false);
+            oled_write_P(PSTR("DROPPIN,\n"), false);
+            oled_write_P(PSTR("BOYS?\n"), false);
+            break;
+        default:
+            oled_write_P(PSTR("hmm"), false);
+            oled_write_P(PSTR("layer deets\n"), false);
+            oled_write_P(PSTR("missing\n"), false);
+            oled_write_P(PSTR("\n"), false);
     }
 }
 
-void oled_render_amsterdam_flag(void) {
-    // 'Flag_of_Amsterdam', 128x32px
-    static const char PROGMEM amsterdam_flag[] = {
-        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-        0x00, 0x00, 0x00, 0x00, 0x80, 0xc0, 0xe0, 0xf0, 0xf8, 0xf8, 0xf0, 0xe0, 0xc0, 0x80, 0x00, 0x00,
-        0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0xc0, 0xe0, 0xf0, 0xf8, 0xf8, 0xf0, 0xe0, 0xc0, 0x80, 0x00,
-        0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0xc0, 0xe0, 0xf0, 0xf0, 0xf8, 0xf8, 0xf0, 0xe0, 0xc0, 0x80,
-        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0xc0, 0xe0, 0xf0, 0xf8, 0xf8, 0xf0, 0xe0, 0xc0, 0x80,
-        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0xc0, 0xe0, 0xf0, 0xf8, 0xf8, 0xf0, 0xe0, 0xc0,
-        0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0xc0, 0xe0, 0xf0, 0xf8, 0xf8, 0xf8, 0xf0, 0xe0,
-        0xc0, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-        0x00, 0x00, 0x00, 0x00, 0x01, 0x03, 0x07, 0x07, 0x0f, 0x1f, 0x3f, 0x7f, 0xff, 0xff, 0xff, 0xff,
-        0xfe, 0xfc, 0xfc, 0xfe, 0xff, 0xff, 0xff, 0xff, 0x7f, 0x3f, 0x1f, 0x0f, 0x07, 0x03, 0x01, 0x00,
-        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x03, 0x07, 0x0f, 0x1f, 0x3f, 0x7f, 0xff, 0xff, 0xff,
-        0xff, 0xfe, 0xfc, 0xfc, 0xfe, 0xff, 0xff, 0xff, 0xff, 0x7f, 0x3f, 0x1f, 0x0f, 0x07, 0x03, 0x01,
-        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x03, 0x07, 0x0f, 0x1f, 0x3f, 0x7f, 0xff, 0xff,
-        0xff, 0xff, 0xfe, 0xfc, 0xfc, 0xfe, 0xff, 0xff, 0xff, 0xff, 0x7f, 0x3f, 0x1f, 0x0f, 0x07, 0x03,
-        0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-        0x00, 0x00, 0x00, 0x00, 0x80, 0xc0, 0xe0, 0xf0, 0xf8, 0xfc, 0xfe, 0xff, 0xff, 0xff, 0xff, 0x7f,
-        0x3f, 0x3f, 0x3f, 0x7f, 0xff, 0xff, 0xff, 0xff, 0xfe, 0xfc, 0xf8, 0xf0, 0xe0, 0xc0, 0x80, 0x00,
-        0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0xc0, 0xe0, 0xe0, 0xf0, 0xf8, 0xfc, 0xfe, 0xff, 0xff, 0xff,
-        0xff, 0x7f, 0x3f, 0x3f, 0x7f, 0xff, 0xff, 0xff, 0xff, 0xfe, 0xfc, 0xf8, 0xf0, 0xe0, 0xc0, 0x80,
-        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0xc0, 0xe0, 0xf0, 0xf8, 0xfc, 0xfe, 0xff, 0xff,
-        0xff, 0xff, 0x7f, 0x3f, 0x1f, 0x3f, 0x7f, 0xff, 0xff, 0xff, 0xfe, 0xfc, 0xfc, 0xf8, 0xf0, 0xe0,
-        0xc0, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-        0x00, 0x00, 0x00, 0x00, 0x01, 0x03, 0x07, 0x0f, 0x0f, 0x1f, 0x0f, 0x07, 0x03, 0x01, 0x00, 0x00,
-        0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x03, 0x07, 0x0f, 0x1f, 0x1f, 0x0f, 0x07, 0x03, 0x01, 0x00,
-        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x03, 0x07, 0x0f, 0x1f, 0x0f, 0x07, 0x03, 0x01, 0x00,
-        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x03, 0x07, 0x0f, 0x1f, 0x1f, 0x0f, 0x07, 0x03, 0x01,
-        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x03, 0x07, 0x0f, 0x1f, 0x1f, 0x0f, 0x07, 0x03,
-        0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x03, 0x07, 0x0f, 0x1f, 0x0f, 0x07, 0x03,
-        0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-    };
-    oled_write_raw_P(amsterdam_flag, sizeof(amsterdam_flag));
+void oled_task_user(void) {
+    if (is_keyboard_master()) {
+        render_status();
+    } else {
+        render_status();
+    }
 }
 
-void oled_task_user(void) {
-    oled_render_amsterdam_flag();
-}
 #endif
 
 
-// keyboard initialization
-void keyboard_post_init_user_keymap(void) {
-    layer_on(LR_QWERTY);
+
+// light up leds based on the layer
+uint32_t layer_state_set_user_keymap(uint32_t state) {
+    switch (biton32(state)) {
+        case LR_SYSCTL:
+            rgblight_sethsv_at(HSV_BLUE, 8);
+            rgblight_sethsv_at(HSV_BLUE, 1);
+            rgblight_sethsv_at(HSV_BLUE, 2);
+            rgblight_sethsv_at(HSV_BLUE, 3);
+            break;
+        case LR_KBCTL:
+            rgblight_sethsv_at(HSV_RED, 8);
+            break;
+        case LR_SYMBOL:
+            rgblight_sethsv_at(HSV_GREEN, 8);
+            break;
+        case LR_SYSCTL2:
+            rgblight_sethsv_at(HSV_ORANGE, 8);
+            break;
+        default:
+            rgblight_sethsv_at(HSV_BLACK, 8);
+            break;
+    }
+    return state;
 }
+
+// keyboard initialization
+void keyboard_post_init_user_keymap(void) { layer_on(LR_QWERTY); }

@@ -191,6 +191,7 @@ enum {
 #define LAYOUT_ergodox_pretty_wrapper(...)  LAYOUT_ergodox_pretty(__VA_ARGS__)
 #define LAYOUT_wrapper(...)                 LAYOUT(__VA_ARGS__)
 #define LAYOUT_split_3x5_3_wrapper(...)     LAYOUT_split_3x5_3(__VA_ARGS__)
+#define LAYOUT_split_3x6_3_wrapper(...)     LAYOUT_split_3x6_3(__VA_ARGS__)
 
 
 // Extra stuff that might be needed.

@@ -4,7 +4,7 @@
 BOOTLOADER = qmk-dfu
 
 OLED_DRIVER_ENABLE  = yes
-RGBLIGHT_ENABLE = yes
+# RGB_MATRIX_ENABLE = yes
 
 # disable to make firmware smaller
 MOUSEKEY_ENABLE = no

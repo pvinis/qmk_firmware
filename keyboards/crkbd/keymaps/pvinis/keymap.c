@@ -87,17 +87,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // T, is it used? maybe replace with something else
         // F, is it used? maybe replace with something else
         // G, is it used? maybe replace with something else
-        // Z, is it used? maybe replace with something else
         // X throw loadie
         // C, is it used? maybe replace with something else
         // V, is it used? maybe replace with something else
+        // 3 UAV etc
         // 4 put armor plate
         // M map
         // Lalt ping
         // clang-format off
         KC_TAB , KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   ,    KC_3   , KC_6   , _______, _______, BASE   , KC_ESC ,
         KC_LCTL, KC_A   , KC_S   , KC_D   , KC_F   , KC_G   ,    KC_4   , _______, _______, _______, _______, KC_ENT ,
-        KC_LSFT, KC_Z   , KC_X   , KC_C   , KC_V   , KC_4   ,    KC_5   , _______, _______, _______, _______, KC_LWIN,
+        KC_LSFT, KC_3   , KC_X   , KC_C   , KC_V   , KC_4   ,    KC_5   , _______, _______, _______, _______, KC_LWIN,
                                    KC_M   , KC_SPC , KC_LALT,    KC_LWIN, _______, _______
         // clang-format on
         ),
@@ -161,7 +161,14 @@ uint32_t layer_state_set_user_keymap(uint32_t state) {
             break;
     }
     return state;
+
+void keyboard_post_init_user_keymap(void) {
+    layer_on(LR_QWERTY);
+
+    // #ifdef RGB_MATRIX_ENABLE
+    //     rgb_matrix_sethsv(HSV_BLACK);
+    //     rgb_matrix_mode(RGB_MATRIX_SOLID_COLOR);
+    // #endif
 }
 
-// keyboard initialization
-void keyboard_post_init_user_keymap(void) { layer_on(LR_QWERTY); }
+

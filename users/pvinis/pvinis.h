@@ -139,19 +139,20 @@ enum {
 #define ________________CARPALX_R3_________________ KC_K, KC_P, KC_COMM, KC_DOT, KC_SLSH
 
 // ,-----+-----+-----+-----+-----,   ,-----+-----+-----+-----+-----,
-// |  !  | tab |  {  |  }  |  _  |   |  \  |     |  `  |     |     |
+// |  !  | @   |  {  |  }  |  _  |   |  \  |     |  `  |     |     |
 // ,-----+-----+-----x-----x-----,   ,-----x-----x-----+-----+-----,
 // |  #  |  $  |  (  |  )  |  -  |   |  =  |  &  |  '  |  "  |  |  |
 // ,-----+-----+-----x-----x-----,   ,-----x-----x-----+-----+-----,
 // |  %  |  ^  |  [  |  ]  |  +  |   |  *  |  ~  |  <  |  >  |  /  |
 // ,-----+-----+-----+-----+-----,   ,-----+-----+-----+-----+-----,
-#define _________________SYMBOL_L1_________________ KC_EXLM, KC_TAB, KC_LCBR, KC_RCBR, KC_UNDS
+#define _________________SYMBOL_L1_________________ KC_EXLM, KC_AT , KC_LCBR, KC_RCBR, KC_UNDS
 #define _________________SYMBOL_L2_________________ KC_HASH, KC_DLR, KC_LPRN, KC_RPRN, KC_MINS
 #define _________________SYMBOL_L3_________________ KC_PERC, KC_CIRC, KC_LBRC, KC_RBRC, KC_PLUS
 
-#define _________________SYMBOL_R1_________________ KC_BSLS, _______, KC_GRV, _______, _______
+#define _________________SYMBOL_R1_________________ KC_BSLS, XXXXXXX, KC_GRV, XXXXXXX, XXXXXXX
 #define _________________SYMBOL_R2_________________ KC_EQL, KC_AMPR, KC_QUOT, KC_DQUO, KC_PIPE
 #define _________________SYMBOL_R3_________________ KC_ASTR, KC_TILD, KC_LABK, KC_RABK, KC_SLSH
+
 
 // System Control.
 //                                    vol ↓                   ctl ↓
@@ -178,6 +179,17 @@ enum {
 #define ________________SYSCTL2_R2_________________ KC_KP_0, KC_KP_1, KC_KP_2, KC_KP_3, _______
 #define ________________SYSCTL2_R3_________________ HYPR(KC_8), QWERTY, WARZONE, GAME2, PV_CTLALTDEL
 
+// clang-format off
+#define ________________SYSCTL1_L1_________________ KC_1   , KC_2   , KC_3   , KC_4   , KC_5
+#define ________________SYSCTL1_L2_________________ XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
+#define ________________SYSCTL1_L3_________________ XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
+// clang-format on
+
+// clang-format off
+#define ________________SYSCTL1_R1_________________ KC_6   , KC_7   , KC_8   , KC_9   , KC_0
+#define ________________SYSCTL1_R2_________________ XXXXXXX, KC_4   , KC_5   , KC_6   , XXXXXXX, XXXXXXX
+#define ________________SYSCTL1_R3_________________ XXXXXXX, KC_1   , KC_2   , KC_3   , XXXXXXX, XXXXXXX
+// clang-format on
 // ,-----+-----+-----+-----+-----,   ,-----+-----+-----+-----+-----,
 // |GAME |CRPLX|XXXXX|XXXXX|XXXXX|   |XXXXX|XXXXX|XXXXX|XXXXX|XXXXX|
 // ,-----+-----+-----x-----x-----,   ,-----x-----x-----+-----+-----,

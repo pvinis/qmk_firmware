@@ -104,63 +104,84 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 
-#ifdef OLED_DRIVER_ENABLE
-oled_rotation_t oled_init_user(oled_rotation_t rotation) {
-    if (!is_keyboard_master()) return OLED_ROTATION_180;
-    return rotation;
-}
+// #ifdef OLED_DRIVER_ENABLE
+// oled_rotation_t oled_init_user(oled_rotation_t rotation) {
+//     if (!is_keyboard_master()) return OLED_ROTATION_180;
+//     return rotation;
+// }
 
-static void render_status(void) {
-    switch (get_highest_layer(layer_state)) {
-        case LR_WARZONE:
-            oled_write_P(PSTR("WHERE\n"), false);
-            oled_write_P(PSTR("WE\n"), false);
-            oled_write_P(PSTR("DROPPIN,\n"), false);
-            oled_write_P(PSTR("BOYS?\n"), false);
-            break;
-        default:
-            oled_write_P(PSTR("hmm"), false);
-            oled_write_P(PSTR("layer deets\n"), false);
-            oled_write_P(PSTR("missing\n"), false);
-            oled_write_P(PSTR("\n"), false);
-    }
-}
+// static void render_status(void) {
+//     switch (get_highest_layer(layer_state)) {
+//         case LR_WARZONE:
+//             oled_write_P(PSTR("WHERE\n"), false);
+//             oled_write_P(PSTR("WE\n"), false);
+//             oled_write_P(PSTR("DROPPIN,\n"), false);
+//             oled_write_P(PSTR("BOYS?\n"), false);
+//             break;
+//         default:
+//             oled_write_P(PSTR("hmm"), false);
+//             oled_write_P(PSTR("layer deets\n"), false);
+//             oled_write_P(PSTR("missing\n"), false);
+//             oled_write_P(PSTR("\n"), false);
+//     }
+// }
 
-void oled_task_user(void) {
-    if (is_keyboard_master()) {
-        render_status();
-    } else {
-        render_status();
-    }
-}
-
-#endif
+// void oled_task_user(void) {
+//     if (is_keyboard_master()) {
+//         render_status();
+//     } else {
+//         render_status();
+//     }
+// }
+// #endif
 
 
 
 // light up leds based on the layer
-uint32_t layer_state_set_user_keymap(uint32_t state) {
-    switch (biton32(state)) {
-        case LR_SYSCTL:
-            rgblight_sethsv_at(HSV_BLUE, 8);
-            rgblight_sethsv_at(HSV_BLUE, 1);
-            rgblight_sethsv_at(HSV_BLUE, 2);
-            rgblight_sethsv_at(HSV_BLUE, 3);
-            break;
-        case LR_KBCTL:
-            rgblight_sethsv_at(HSV_RED, 8);
-            break;
-        case LR_SYMBOL:
-            rgblight_sethsv_at(HSV_GREEN, 8);
-            break;
-        case LR_SYSCTL2:
-            rgblight_sethsv_at(HSV_ORANGE, 8);
-            break;
-        default:
-            rgblight_sethsv_at(HSV_BLACK, 8);
-            break;
-    }
-    return state;
+// uint32_t layer_state_set_user_keymap(uint32_t state) {
+// switch (biton32(state)) {
+// case LR_SYSCTL:
+// rgblight_sethsv_at(HSV_BLUE, 8);
+// rgblight_sethsv_at(HSV_BLUE, 18);
+// rgblight_sethsv_at(HSV_BLUE, 28);
+// rgblight_sethsv_at(HSV_BLUE, 38);
+// rgblight_sethsv_slave(HSV_BLUE);
+//  rgblight_sethsv_range(HSV_BLUE, 6, 27);
+//  rgblight_sethsv_range(HSV_BLUE, 0, RGBLED_NUM);
+
+//  rgblight_sethsv_range(HSV_BLUE, 29, 37);
+//  rgblight_sethsv_range(he, sat, val, 0, (uint8_t)RGBLED_NUM / 2); }
+// rgb_matrix_set_color_all(0, 0, 255);
+// void rgblight_sethsv_slave(uint8_t hue, uint8_t sat, uint8_t val) { rgblight_sethsv_range(hue, sat, val, (uint8_t)RGBLED_NUM / 2, (uint8_t)RGBLED_NUM); }
+// #ifdef RGB_MATRIX_ENABLE
+// rgb_matrix_set_color(8, RGB_BLUE);
+// #endif
+// break;
+// case LR_KBCTL:
+// rgblight_sethsv_at(HSV_RED, 8);
+// rgblight_sethsv_master(HSV_RED);
+// rgblight_sethsv_slave(HSV_RED);
+//  rgblight_sethsv_range(HSV_RED, 0, (uint8_t)RGBLED_NUM / 2);
+// rgb_matrix_set_color_all(255, 0, 0);
+// break;
+// case LR_SYMBOL:
+// #ifdef RGB_MATRIX_ENABLE
+// rgb_matrix_sethsv(HSV_GREEN);
+// #endif
+// break;
+// case LR_SYSCTL2:
+// rgblight_sethsv_at(HSV_ORANGE, 8);
+// break;
+// default:
+// #ifdef RGB_MATRIX_ENABLE
+// rgb_matrix_sethsv(HSV_BLACK);
+// rgblight_sethsv_at(HSV_BLACK, 8);
+// rgb_matrix_set_color_all(0, 0, 0);
+// #endif
+// break;
+// }
+// return state;
+// }
 
 void keyboard_post_init_user_keymap(void) {
     layer_on(LR_QWERTY);

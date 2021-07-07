@@ -56,8 +56,8 @@ enum {
 
     LR_SYMBOL,   // symbol input (!, @, #, etc)
     LR_SYSCTL,   // system control (music, volume, keyboard flash, etc)
-    LR_SYSCTL2,  // system control (music, volume, keyboard flash, etc)
-    LR_KBCTL,    // keyboard control (version, make, flash, etc)
+    LR_NUMBERS,  // numbers and numpad layer
+    LR_KBCTL,    // keyboard control (version, make, flash, layers, etc)
 
     LR_SAFE_RANGE,  // Used for extra layers in individual keymaps.
 };
@@ -73,7 +73,7 @@ enum {
 
 #define SYMBOL  MO(LR_SYMBOL)
 #define SYSCTL  MO(LR_SYSCTL)
-#define SYSCTL2 MO(LR_SYSCTL2)
+#define NUMBERS MO(LR_NUMBERS)
 #define KBCTL   MO(LR_KBCTL)
 
 
@@ -174,22 +174,19 @@ enum {
 #define _________________SYSCTL_R3_________________ KC_VOLD, KC_MPRV, KC_MPLY, KC_MNXT /* < music */  , KC_PWR
 // clang-format on
 
-#define ________________SYSCTL2_R0_________________ _______, KC_KP_7, KC_KP_8, KC_KP_9, _______
-#define ________________SYSCTL2_R1_________________ _______, KC_KP_4, KC_KP_5, KC_KP_6, _______
-#define ________________SYSCTL2_R2_________________ KC_KP_0, KC_KP_1, KC_KP_2, KC_KP_3, _______
-#define ________________SYSCTL2_R3_________________ HYPR(KC_8), QWERTY, WARZONE, GAME2, PV_CTLALTDEL
-
 // clang-format off
-#define ________________SYSCTL1_L1_________________ KC_1   , KC_2   , KC_3   , KC_4   , KC_5
-#define ________________SYSCTL1_L2_________________ XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
-#define ________________SYSCTL1_L3_________________ XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
+#define ________________NUMBERS_L1_________________ KC_1   , KC_2   , KC_3   , KC_4   , KC_5
+#define ________________NUMBERS_L2_________________ XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
+#define ________________NUMBERS_L3_________________ XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
 // clang-format on
 
 // clang-format off
-#define ________________SYSCTL1_R1_________________ KC_6   , KC_7   , KC_8   , KC_9   , KC_0
-#define ________________SYSCTL1_R2_________________ XXXXXXX, KC_4   , KC_5   , KC_6   , XXXXXXX, XXXXXXX
-#define ________________SYSCTL1_R3_________________ XXXXXXX, KC_1   , KC_2   , KC_3   , XXXXXXX, XXXXXXX
+#define ________________NUMBERS_R1_________________ KC_6   , KC_7   , KC_8   , KC_9   , KC_0
+#define ________________NUMBERS_R2_________________ XXXXXXX, KC_4   , KC_5   , KC_6   , XXXXXXX
+#define ________________NUMBERS_R3_________________ KC_0   , KC_1   , KC_2   , KC_3   , XXXXXXX
 // clang-format on
+
+
 // ,-----+-----+-----+-----+-----,   ,-----+-----+-----+-----+-----,
 // |GAME |CRPLX|XXXXX|XXXXX|XXXXX|   |XXXXX|XXXXX|XXXXX|XXXXX|XXXXX|
 // ,-----+-----+-----x-----x-----,   ,-----x-----x-----+-----+-----,
@@ -203,7 +200,7 @@ enum {
 
 #define __________________KBCTL_R1_________________ XXXXXXX, XXXXXXX, PV_CMPL, PV_HMDP, XXXXXXX
 #define __________________KBCTL_R2_________________ XXXXXXX, PV_VRSN, PV_MAKE, PV_RST, XXXXXXX
-#define __________________KBCTL_R3_________________ XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
+#define __________________KBCTL_R3_________________ HYPR(KC_8), QWERTY, WARZONE, GAME2, PV_CTLALTDEL
 
 // We need wrappers in order for these definitions, because they need to be expanded before being used as arguments to the LAYOUT_xxx macro.
 #define LAYOUT_ergodox_pretty_wrapper(...) LAYOUT_ergodox_pretty(__VA_ARGS__)

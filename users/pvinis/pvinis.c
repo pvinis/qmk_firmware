@@ -85,14 +85,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case PV_L_KNTTGL:
             if (record->event.pressed) {
 #ifdef RGBLIGHT_ENABLE
-                if (showing_knight) {
-                    rgblight_sethsv(HSV_RED);
-                    rgblight_mode(RGBLIGHT_MODE_KNIGHT + 2);
-                } else {
-                    rgblight_sethsv(HSV_BLACK);
-                    rgblight_mode(RGBLIGHT_MODE_STATIC_LIGHT);
-                }
-                showing_knight = !showing_knight;
+                // if (showing_knight) {
+                //     rgblight_sethsv(HSV_RED);
+                //     rgblight_mode(RGBLIGHT_MODE_KNIGHT + 2);
+                // } else {
+                //     rgblight_sethsv(HSV_BLACK);
+                //     rgblight_mode(RGBLIGHT_MODE_STATIC_LIGHT);
+                // }
+                // showing_knight = !showing_knight;
 #endif
             }
             return false;
@@ -104,18 +104,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 qk_tap_dance_action_t tap_dance_actions[] = {};
 #endif
 
-#ifdef RGBLIGHT_ENABLE
 void keyboard_post_init_rgb_light(void) {
-    rgblight_sethsv(HSV_BLACK);
-    rgblight_mode(RGBLIGHT_MODE_STATIC_LIGHT);
-}
+#ifdef RGBLIGHT_ENABLE
 #endif
+}
 
 // Init stuff.
 void keyboard_post_init_user(void) {
-#if defined(RGBLIGHT_ENABLE)
     keyboard_post_init_rgb_light();
-#endif
     keyboard_post_init_user_keymap();
 }
 

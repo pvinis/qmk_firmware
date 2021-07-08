@@ -140,58 +140,38 @@ void oled_task_user(void) {
 #endif
 
 
+void set_layer_indicator(uint8_t hue, uint8_t sat, uint8_t val) {
+#ifdef RGBLIGHT_ENABLE
+    rgblight_sethsv_at(hue, sat, val, 8);
+#endif
+}
 
-// light up leds based on the layer
-// uint32_t layer_state_set_user_keymap(uint32_t state) {
-// switch (biton32(state)) {
-// case LR_SYSCTL:
-// rgblight_sethsv_at(HSV_BLUE, 8);
-// rgblight_sethsv_at(HSV_BLUE, 18);
-// rgblight_sethsv_at(HSV_BLUE, 28);
-// rgblight_sethsv_at(HSV_BLUE, 38);
-// rgblight_sethsv_slave(HSV_BLUE);
-//  rgblight_sethsv_range(HSV_BLUE, 6, 27);
-//  rgblight_sethsv_range(HSV_BLUE, 0, RGBLED_NUM);
+uint32_t layer_state_set_user_keymap(uint32_t state) {
+    switch (biton32(state)) {
+        case LR_SYSCTL:
+            set_layer_indicator(HSV_BLUE);
+            break;
 
-//  rgblight_sethsv_range(HSV_BLUE, 29, 37);
-//  rgblight_sethsv_range(he, sat, val, 0, (uint8_t)RGBLED_NUM / 2); }
-// rgb_matrix_set_color_all(0, 0, 255);
-// void rgblight_sethsv_slave(uint8_t hue, uint8_t sat, uint8_t val) { rgblight_sethsv_range(hue, sat, val, (uint8_t)RGBLED_NUM / 2, (uint8_t)RGBLED_NUM); }
-// #ifdef RGB_MATRIX_ENABLE
-// rgb_matrix_set_color(8, RGB_BLUE);
-// #endif
-// break;
-// case LR_KBCTL:
-// rgblight_sethsv_at(HSV_RED, 8);
-// rgblight_sethsv_master(HSV_RED);
-// rgblight_sethsv_slave(HSV_RED);
-//  rgblight_sethsv_range(HSV_RED, 0, (uint8_t)RGBLED_NUM / 2);
-// rgb_matrix_set_color_all(255, 0, 0);
-// break;
-// case LR_SYMBOL:
-// #ifdef RGB_MATRIX_ENABLE
-// rgb_matrix_sethsv(HSV_GREEN);
-// #endif
-// break;
-// case LR_SYSCTL2:
-// rgblight_sethsv_at(HSV_ORANGE, 8);
-// break;
-// default:
-// #ifdef RGB_MATRIX_ENABLE
-// rgb_matrix_sethsv(HSV_BLACK);
-// rgblight_sethsv_at(HSV_BLACK, 8);
-// rgb_matrix_set_color_all(0, 0, 0);
-// #endif
-// break;
-// }
-// return state;
-// }
+        case LR_KBCTL:
+            set_layer_indicator(HSV_RED);
+            break;
+
+        case LR_SYMBOL:
+            set_layer_indicator(HSV_GREEN);
+            break;
+
+        case LR_NUMBERS:
+            set_layer_indicator(HSV_ORANGE);
+            break;
+
+        default:
+            set_layer_indicator(HSV_BLACK);
+            break;
+    }
+    return state;
+}
+
 
 void keyboard_post_init_user_keymap(void) {
     layer_on(LR_QWERTY);
-
-    // #ifdef RGB_MATRIX_ENABLE
-    //     rgb_matrix_sethsv(HSV_BLACK);
-    //     rgb_matrix_mode(RGB_MATRIX_SOLID_COLOR);
-    // #endif
 }

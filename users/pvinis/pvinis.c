@@ -10,10 +10,12 @@ float song_coin_sound[][2] = SONG(COIN_SOUND);
 float song_test[][2]       = SONG(QWERTY_SOUND);
 #endif
 
+
+userspace_config_t userspace_config;
+
+
 #ifdef RGBLIGHT_ENABLE
-
 bool showing_knight = false;
-
 #endif
 
 
@@ -82,6 +84,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             return false;
 
+        case PV_OLED_TGL:
+        userspace_config.oled_is_on = !userspace_config.oled_is_on;
+#ifdef OLED_DRIVER_ENABLE
+            if (is_oled_on()) {
+                oled_off();
+            } else {
+                oled_on();
+            }
+#endif
+            return false;
+
         case PV_L_KNTTGL:
             if (record->event.pressed) {
 #ifdef RGBLIGHT_ENABLE
@@ -111,6 +124,8 @@ void keyboard_post_init_rgb_light(void) {
 
 // Init stuff.
 void keyboard_post_init_user(void) {
+    userspace_config.oled_is_on = true;
+
     keyboard_post_init_rgb_light();
     keyboard_post_init_user_keymap();
 }

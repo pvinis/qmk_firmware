@@ -111,6 +111,8 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
 }
 
 static void render_status(void) {
+    if (!userspace_config.is_oled_on) return;
+
     switch (get_highest_layer(layer_state)) {
         case LR_QWERTY:
             oled_write_P(PSTR("hello\n"), false);

@@ -21,6 +21,7 @@ enum userspace_custom_keycodes {
     PV_TEST,  // For quick testing purposes.
 
     PV_L_KNTTGL,  // Toggle knight light.
+    PV_OLED_TGL,  // Toggle the OLED.
 
 
     PV_SAFE_RANGE,  // Used for extra keycodes in individual keymaps.
@@ -147,7 +148,7 @@ enum {
 // ,-----+-----+-----x-----x-----,   ,-----x-----x-----+-----+-----,
 // |  %  |  ^  |  [  |  ]  |  +  |   |  *  |  ~  |  <  |  >  |  /  |
 // ,-----+-----+-----+-----+-----,   ,-----+-----+-----+-----+-----,
-#define _________________SYMBOL_L1_________________ KC_EXLM, KC_AT , KC_LCBR, KC_RCBR, KC_UNDS
+#define _________________SYMBOL_L1_________________ KC_EXLM, KC_AT, KC_LCBR, KC_RCBR, KC_UNDS
 #define _________________SYMBOL_L2_________________ KC_HASH, KC_DLR, KC_LPRN, KC_RPRN, KC_MINS
 #define _________________SYMBOL_L3_________________ KC_PERC, KC_CIRC, KC_LBRC, KC_RBRC, KC_PLUS
 
@@ -159,11 +160,11 @@ enum {
 // System Control.
 //                                    vol ↓                   ctl ↓
 // ┌─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┐
-// │     │     │     │     │     │   │MUTE │HOME │ ↑  │ END │LOCK │
+// │ F1  │ F2  │ F3  │ F4  │ F5  │   │MUTE │HOME │ ↑  │ END │LOCK │
 // ├─────┼─────┼─────╆━━━━━╅─────┤   ├─────╆━━━━━╅─────┼─────┼─────┤
-// │     │     │     ┃     ┃     │   │VOLUP┃  ← ┃ ↓  │ →  │SLEEP│ ← arrows
+// │ F6  │ F7  │ F8  ┃ F9  ┃ F10 │   │VOLUP┃  ← ┃ ↓  │ →  │SLEEP│ ← arrows
 // ├─────┼─────┼─────╄━━━━━╃─────┤   ├─────╄━━━━━╃─────┼─────┼─────┤
-// │     │     │     │     │     │   │VOLDN│MPREV│MPLAY│MNEXT│ PWR │ ← music
+// │ F11 │ F12 │     │     │     │   │VOLDN│MPREV│MPLAY│MNEXT│ PWR │ ← music
 // └─────┴─────┴─────┴─────┴─────┘   └─────┴─────┴─────┴─────┴─────┘
 #define _________________SYSCTL_L1_________________ ______________________F_1_5________________
 #define _________________SYSCTL_L2_________________ ______________________F_6_10_______________
@@ -190,19 +191,21 @@ enum {
 
 
 // ,-----+-----+-----+-----+-----,   ,-----+-----+-----+-----+-----,
-// |GAME |CRPLX|XXXXX|XXXXX|XXXXX|   |XXXXX|XXXXX|XXXXX|XXXXX|XXXXX|
+// |GAME |CRPLX|XXXXX|XXXXX|XXXXX|   |XXXXX|XXXXX|CMPL |XXXXX|XXXXX|
 // ,-----+-----+-----x-----x-----,   ,-----x-----x-----+-----+-----,
 // |XXXXX|XXXXX|XXXXX|XXXXX|XXXXX|   |XXXXX|VERSN|MAKE |RESET|XXXXX|
 // ,-----+-----+-----x-----x-----,   ,-----x-----x-----+-----+-----,
-// |XXXXX|XXXXX|XXXXX|XXXXX|XXXXX|   |XXXXX|XXXXX|XXXXX|XXXXX|XXXXX|
+// |XXXXX|XXXXX|XXXXX|OLETG|RGBTG|   |XXXXX|XXXXX|XXXXX|XXXXX|XXXXX|
 // ,-----+-----+-----+-----+-----,   ,-----+-----+-----+-----+-----,
-#define __________________KBCTL_L1_________________ PV_SSNC, PV_SCIN, PV_TEST, XXXXXXX, XXXXXXX
-#define __________________KBCTL_L2_________________ XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
-#define __________________KBCTL_L3_________________ XXXXXXX, XXXXXXX, XXXXXXX, PV_L_KNTTGL, RGB_TOG
+// clang-format off
+#define __________________KBCTL_L1_________________ PV_SSNC, PV_SCIN, PV_TEST, XXXXXXX        , XXXXXXX
+#define __________________KBCTL_L2_________________ XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX        , XXXXXXX
+#define __________________KBCTL_L3_________________ XXXXXXX, PV_L_KNTTGL, XXXXXXX, PV_OLED_TGL, RGB_TOG
 
 #define __________________KBCTL_R1_________________ XXXXXXX, XXXXXXX, PV_CMPL, PV_HMDP, XXXXXXX
 #define __________________KBCTL_R2_________________ XXXXXXX, PV_VRSN, PV_MAKE, PV_RST, XXXXXXX
 #define __________________KBCTL_R3_________________ HYPR(KC_8), QWERTY, WARZONE, GAME2, PV_CTLALTDEL
+// clang-format on
 
 // We need wrappers in order for these definitions, because they need to be expanded before being used as arguments to the LAYOUT_xxx macro.
 #define LAYOUT_ergodox_pretty_wrapper(...) LAYOUT_ergodox_pretty(__VA_ARGS__)
@@ -214,3 +217,13 @@ enum {
 // Extra stuff that might be needed.
 void     keyboard_post_init_user_keymap(void);
 uint32_t layer_state_set_user_keymap(uint32_t state);
+
+
+typedef union {
+    uint32_t raw;
+    struct {
+        bool oled_is_on : 1;
+    };
+} userspace_config_t;
+
+extern userspace_config_t userspace_config;

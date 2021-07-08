@@ -85,14 +85,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;
 
         case PV_OLED_TGL:
-        userspace_config.oled_is_on = !userspace_config.oled_is_on;
+            if (record->event.pressed) {
+                userspace_config.is_oled_on = !userspace_config.is_oled_on;
 #ifdef OLED_DRIVER_ENABLE
-            if (is_oled_on()) {
-                oled_off();
-            } else {
-                oled_on();
-            }
+                if (userspace_config.is_oled_on) {
+                    oled_on();
+                } else {
+                    oled_clear();
+                    oled_off();
+                }
 #endif
+            }
             return false;
 
         case PV_L_KNTTGL:
@@ -124,7 +127,8 @@ void keyboard_post_init_rgb_light(void) {
 
 // Init stuff.
 void keyboard_post_init_user(void) {
-    userspace_config.oled_is_on = true;
+    userspace_config.raw        = 0;
+    userspace_config.is_oled_on = true;
 
     keyboard_post_init_rgb_light();
     keyboard_post_init_user_keymap();

@@ -222,7 +222,7 @@ uint32_t layer_state_set_user_keymap(uint32_t state);
 typedef union {
     uint32_t raw;
     struct {
-        bool oled_is_on : 1;
+        bool is_oled_on : 1;
     };
 } userspace_config_t;
 

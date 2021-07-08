@@ -115,16 +115,19 @@ static void render_status(void) {
 
     switch (get_highest_layer(layer_state)) {
         case LR_QWERTY:
+            oled_write_P(PSTR("N"), userspace_config.is_oled_on);
             oled_write_P(PSTR("hello\n"), false);
             oled_write_P(PSTR("there!\n"), false);
             break;
         case LR_WARZONE:
+            oled_write_P(PSTR("N"), userspace_config.is_oled_on);
             oled_write_P(PSTR("WHERE\n"), false);
             oled_write_P(PSTR("WE\n"), false);
             oled_write_P(PSTR("DROPPIN,\n"), false);
             oled_write_P(PSTR("BOYS?\n"), false);
             break;
         default:
+            oled_write_P(PSTR("N"), userspace_config.is_oled_on);
             oled_write_P(PSTR("hmm"), false);
             oled_write_P(PSTR("layer deets\n"), false);
             oled_write_P(PSTR("missing\n"), false);

@@ -143,6 +143,14 @@ void oled_task_user(void) {
 void set_layer_indicator(uint8_t hue, uint8_t sat, uint8_t val) {
 #ifdef RGBLIGHT_ENABLE
     rgblight_sethsv_at(hue, sat, val, 8);
+    rgblight_sethsv_at(hue, sat, val, 11);
+    rgblight_sethsv_at(hue, sat, val, 16);
+    rgblight_sethsv_at(hue, sat, val, 19);
+    rgblight_sethsv_at(hue, sat, val, 22);
+    rgblight_sethsv_at(hue, sat, val, 25);
+    rgblight_sethsv_at(hue, sat, val, 28);
+    rgblight_sethsv_at(hue, sat, val, 31);
+    rgblight_sethsv_at(hue, sat, val, 34);
 #endif
 }
 
@@ -150,10 +158,21 @@ uint32_t layer_state_set_user_keymap(uint32_t state) {
     switch (biton32(state)) {
         case LR_SYSCTL:
             set_layer_indicator(HSV_BLUE);
+            // rgblight_sethsv_slave(HSV_BLUE);
+            // rgblight_sethsv_range(HSV_BLUE, 6, 27);
+            // rgblight_sethsv_range(HSV_BLUE, 0, RGBLED_NUM);
+
+            // rgblight_sethsv_range(HSV_BLUE, 29, 37);
+            // rgblight_sethsv_range(he, sat, val, 0, (uint8_t)RGBLED_NUM / 2);
+            // rgb_matrix_set_color_all(0, 0, 255);
+            // rgb_matrix_set_color(8, RGB_BLUE);
             break;
 
         case LR_KBCTL:
             set_layer_indicator(HSV_RED);
+            // rgblight_sethsv_slave(HSV_RED);
+            // rgblight_sethsv_range(HSV_RED, 0, (uint8_t)RGBLED_NUM / 2);
+            // rgb_matrix_set_color_all(255, 0, 0);
             break;
 
         case LR_SYMBOL:
@@ -166,6 +185,9 @@ uint32_t layer_state_set_user_keymap(uint32_t state) {
 
         default:
             set_layer_indicator(HSV_BLACK);
+            // rgb_matrix_sethsv(HSV_BLACK);
+            // rgblight_sethsv_at(HSV_BLACK, 8);
+            // rgb_matrix_set_color_all(0, 0, 0);
             break;
     }
     return state;
@@ -175,3 +197,6 @@ uint32_t layer_state_set_user_keymap(uint32_t state) {
 void keyboard_post_init_user_keymap(void) {
     layer_on(LR_QWERTY);
 }
+
+
+// add kblayer keys to stop and start oled, and to start and stop th elayer lights

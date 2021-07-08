@@ -68,7 +68,13 @@
     #define RGBLIGHT_LIMIT_VAL 120
     #define RGBLIGHT_SPLIT
     #undef RGBLED_NUM
-    #define RGBLED_NUM 27
+    #define RGBLED_NUM 60
 #endif
+
+#ifdef RGB_MATRIX_ENABLE
+    #define RGBLED_NUM 54
+    #define DRIVER_LED_TOTAL RGBLED_NUM
+#endif
+
 
 #define OLED_FONT_H "keyboards/crkbd/lib/glcdfont.c"

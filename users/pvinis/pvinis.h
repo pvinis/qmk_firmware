@@ -76,6 +76,8 @@ enum {
 #define NUMBERS MO(LR_NUMBERS)
 #define KBCTL   MO(LR_KBCTL)
 
+#define NUMBSPC LT(LR_NUMBERS, KC_BSPC)
+
 
 // Layout parts for easy reuse between keyboard keymaps.
 

@@ -27,10 +27,10 @@
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [LR_BASE] = LAYOUT_split_3x6_3_wrapper(
         // clang-format off
-        KC_TAB , ___________________________________________,    _______, _______, _______, _______, _______, _______,
+        KC_TAB , ___________________________________________,    _______, _______, _______, _______, _______, KBCTL  ,
         PV_ESCC, _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______, KC_ENT ,
         KC_LSFT, _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______, KC_RSFT,
-                                   KC_LGUI, SYMBOL , KC_BSPC,    KC_SPC , SYSCTL , NUMBERS
+                                   KC_LGUI, SYMBOL , NUMBSPC,    KC_SPC , SYSCTL , NUMBERS
         // clang-format on
         ),
 
@@ -104,36 +104,40 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 
-// #ifdef OLED_DRIVER_ENABLE
-// oled_rotation_t oled_init_user(oled_rotation_t rotation) {
-//     if (!is_keyboard_master()) return OLED_ROTATION_180;
-//     return rotation;
-// }
+#ifdef OLED_DRIVER_ENABLE
+oled_rotation_t oled_init_user(oled_rotation_t rotation) {
+    if (!is_keyboard_master()) return OLED_ROTATION_180;
+    return rotation;
+}
 
-// static void render_status(void) {
-//     switch (get_highest_layer(layer_state)) {
-//         case LR_WARZONE:
-//             oled_write_P(PSTR("WHERE\n"), false);
-//             oled_write_P(PSTR("WE\n"), false);
-//             oled_write_P(PSTR("DROPPIN,\n"), false);
-//             oled_write_P(PSTR("BOYS?\n"), false);
-//             break;
-//         default:
-//             oled_write_P(PSTR("hmm"), false);
-//             oled_write_P(PSTR("layer deets\n"), false);
-//             oled_write_P(PSTR("missing\n"), false);
-//             oled_write_P(PSTR("\n"), false);
-//     }
-// }
+static void render_status(void) {
+    switch (get_highest_layer(layer_state)) {
+        case LR_QWERTY:
+            oled_write_P(PSTR("hello\n"), false);
+            oled_write_P(PSTR("there!\n"), false);
+            break;
+        case LR_WARZONE:
+            oled_write_P(PSTR("WHERE\n"), false);
+            oled_write_P(PSTR("WE\n"), false);
+            oled_write_P(PSTR("DROPPIN,\n"), false);
+            oled_write_P(PSTR("BOYS?\n"), false);
+            break;
+        default:
+            oled_write_P(PSTR("hmm"), false);
+            oled_write_P(PSTR("layer deets\n"), false);
+            oled_write_P(PSTR("missing\n"), false);
+            oled_write_P(PSTR("\n"), false);
+    }
+}
 
-// void oled_task_user(void) {
-//     if (is_keyboard_master()) {
-//         render_status();
-//     } else {
-//         render_status();
-//     }
-// }
-// #endif
+void oled_task_user(void) {
+    if (is_keyboard_master()) {
+        render_status();
+    } else {
+        render_status();
+    }
+}
+#endif
 
 
 

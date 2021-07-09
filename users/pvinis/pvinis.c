@@ -91,6 +91,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 if (userspace_config.is_oled_on) {
                     oled_on();
                 } else {
+                    oled_scroll_off();
                     oled_clear();
                     oled_off();
                 }

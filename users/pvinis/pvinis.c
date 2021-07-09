@@ -140,3 +140,6 @@ void keyboard_post_init_user(void) {
 __attribute__((weak)) void keyboard_post_init_user_keymap(void) {}
 
 __attribute__((weak)) uint32_t layer_state_set_user_keymap(uint32_t state) { return state; }
+
+
+// add a tapdance action to both sides, to compile and reset

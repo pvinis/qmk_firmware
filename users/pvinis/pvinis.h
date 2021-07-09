@@ -50,15 +50,18 @@ enum {
     LR_BASE = 0,  // used for basic keys like the surrounding ctrl, cmd, etc
 
     LR_QWERTY,
-    LR_CARPALX,
-    LR_GAME1,    // game layout (space on the left thumb, no modifiers, etc)
-    LR_GAME2,    // game layout (space on the left thumb, no modifiers, etc, arrows)
-    LR_WARZONE,  // game layout for warzone
 
     LR_SYMBOL,   // symbol input (!, @, #, etc)
     LR_SYSCTL,   // system control (music, volume, keyboard flash, etc)
     LR_NUMBERS,  // numbers and numpad layer
-    LR_KBCTL,    // keyboard control (version, make, flash, layers, etc)
+    LR_KBCTL,    // keyboard control (version, make, flash, etc)
+    LR_LRCTL,    // layer control
+
+    LR_WARZONE,  // game layout for warzone
+    LR_GAME2,    // game layout (space on the left thumb, no modifiers, etc, arrows)
+
+    // to try
+    LR_CARPALX,
 
     LR_SAFE_RANGE,  // Used for extra layers in individual keymaps.
 };
@@ -68,14 +71,13 @@ enum {
 #define BASE    TO(LR_BASE)
 #define QWERTY  TO(LR_QWERTY)
 #define CARPALX TO(LR_CARPALX)
-#define GAME1   TO(LR_GAME1)
 #define GAME2   TO(LR_GAME2)
 #define WARZONE TO(LR_WARZONE)
 
 #define SYMBOL  MO(LR_SYMBOL)
 #define SYSCTL  MO(LR_SYSCTL)
 #define NUMBERS MO(LR_NUMBERS)
-#define KBCTL   MO(LR_KBCTL)
+#define LRCTL   MO(LR_LRCTL)
 
 #define NUMBSPC LT(LR_NUMBERS, KC_BSPC)
 
@@ -202,9 +204,12 @@ enum {
 #define __________________KBCTL_L2_________________ XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX        , XXXXXXX
 #define __________________KBCTL_L3_________________ XXXXXXX, PV_L_KNTTGL, XXXXXXX, PV_OLED_TGL, RGB_TOG
 
-#define __________________KBCTL_R1_________________ XXXXXXX, XXXXXXX, PV_CMPL, PV_HMDP, XXXXXXX
-#define __________________KBCTL_R2_________________ XXXXXXX, PV_VRSN, PV_MAKE, PV_RST, XXXXXXX
-#define __________________KBCTL_R3_________________ HYPR(KC_8), QWERTY, WARZONE, GAME2, PV_CTLALTDEL
+#define __________________KBCTL_R1_________________ XXXXXXX   , XXXXXXX, PV_CMPL, PV_HMDP, XXXXXXX
+#define __________________KBCTL_R2_________________ XXXXXXX   , PV_VRSN, PV_MAKE, PV_RST , XXXXXXX
+#define __________________KBCTL_R3_________________ HYPR(KC_8), XXXXXXX, XXXXXXX, XXXXXXX, PV_CTLALTDEL
+
+// clang-format off
+#define __________________LRCTL_R3_________________ XXXXXXX   , QWERTY , WARZONE, GAME2  , XXXXXXX
 // clang-format on
 
 // We need wrappers in order for these definitions, because they need to be expanded before being used as arguments to the LAYOUT_xxx macro.

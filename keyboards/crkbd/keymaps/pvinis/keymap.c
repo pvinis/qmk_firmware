@@ -26,7 +26,7 @@
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [LR_BASE] = LAYOUT_split_3x6_3_wrapper(
         // clang-format off
-        KC_TAB , ___________________________________________,    _______, _______, _______, _______, _______, KBCTL  ,
+        KC_TAB , ___________________________________________,    _______, _______, _______, _______, _______, LRCTL  ,
         PV_ESCC, _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______, KC_ENT ,
         KC_LSFT, _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______, KC_RSFT,
                                    KC_LGUI, SYMBOL , NUMBSPC,    KC_SPC , SYSCTL , NUMBERS
@@ -74,6 +74,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, __________________KBCTL_L1_________________,    __________________KBCTL_R1_________________, _______,
         _______, __________________KBCTL_L2_________________,    __________________KBCTL_R2_________________, _______,
         _______, __________________KBCTL_L3_________________,    __________________KBCTL_R3_________________, _______,
+                                   _______, _______, _______,    _______, _______, _______
+        // clang-format on
+        ),
+
+    [LR_LRCTL] = LAYOUT_split_3x6_3_wrapper(
+        // clang-format off
+        _______, ___________________________________________,    ___________________________________________, _______,
+        _______, ___________________________________________,    ___________________________________________, _______,
+        _______, ___________________________________________,    __________________LRCTL_R3_________________, _______,
                                    _______, _______, _______,    _______, _______, _______
         // clang-format on
         ),
@@ -129,12 +138,15 @@ static void render_status(void) {
             oled_write_P(PSTR("SYSCT\n"), false);
             break;
         case LR_KBCTL:
-            oled_write_P(PSTR("KBCT\n"), false);
+            oled_write_P(PSTR("KBCTL\n"), false);
+            break;
+        case LR_LRCTL:
+            oled_write_P(PSTR("LRCTL\n"), false);
             break;
         case LR_WARZONE:
             oled_write_P(PSTR("WAR\n"), false);
             oled_write_P(PSTR("ZONE\n\n"), false);
-            oled_write_P(PSTR("LETS,\n"), false);
+            oled_write_P(PSTR("LETS\n"), false);
             oled_write_P(PSTR("GO!\n"), false);
             break;
         default:

@@ -103,10 +103,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // M map
         // Lalt ping
         // clang-format off
-        KC_TAB , KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   ,    KC_3   , KC_6   , _______, _______, BASE   , KC_ESC ,
+        KC_TAB , KC_Q   , KC_W   , KC_E   , KC_R   , KC_T   ,    KC_3   , KC_6   , _______, _______, BASE   , _______,
         KC_LCTL, KC_A   , KC_S   , KC_D   , KC_F   , KC_G   ,    KC_4   , _______, _______, _______, _______, KC_ENT ,
         KC_LSFT, KC_3   , KC_X   , KC_C   , KC_V   , KC_4   ,    KC_5   , _______, _______, _______, _______, KC_LWIN,
-                                   KC_M   , KC_SPC , KC_LALT,    KC_LWIN, _______, _______
+                                   KC_M   , KC_SPC , KC_LALT,    KC_LWIN, _______, KC_ESC
         // clang-format on
         ),
 };

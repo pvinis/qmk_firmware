@@ -226,7 +226,8 @@ enum {
 #define __________________KBCTL_R3_________________ HYPR(KC_8), XXXXXXX, XXXXXXX, XXXXXXX, PV_CTLALTDEL
 
 // clang-format off
-#define __________________LRCTL_R3_________________ XXXXXXX   , QWERTY , WARZONE, GAME2  , XXXXXXX
+#define __________________LRCTL_R2_________________ XXXXXXX, COLEMAKDH, CARPALX, XXXXXXX, XXXXXXX
+#define __________________LRCTL_R3_________________ XXXXXXX, QWERTY   , WARZONE, GAME2  , XXXXXXX
 // clang-format on
 
 // We need wrappers in order for these definitions, because they need to be expanded before being used as arguments to the LAYOUT_xxx macro.

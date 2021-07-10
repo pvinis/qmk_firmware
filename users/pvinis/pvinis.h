@@ -62,6 +62,7 @@ enum {
 
     // to try
     LR_CARPALX,
+    LR_COLEMAKDH,
 
     LR_SAFE_RANGE,  // Used for extra layers in individual keymaps.
 };
@@ -71,6 +72,7 @@ enum {
 #define BASE    TO(LR_BASE)
 #define QWERTY  TO(LR_QWERTY)
 #define CARPALX TO(LR_CARPALX)
+#define COLEMAKDH TO(LR_COLEMAKDH)
 #define GAME2   TO(LR_GAME2)
 #define WARZONE TO(LR_WARZONE)
 
@@ -129,9 +131,9 @@ enum {
 #define _____________MOD_QWERTY_R2_________________ KC_H, ALT_T(KC_J), GUI_T(KC_K), SFT_T(KC_L), CTL_T(KC_SCLN)
 
 // ,-----+-----+-----+-----+-----,   ,-----+-----+-----+-----+-----,
-// |  Q  |  G  |  M  |  L  |  W  |   |  Y  |  F  |  I  |  O  |  P  |
+// |  Q  |  G  |  M  |  L  |  W  |   |  Y  |  F  |  U  |  B  |  ;  |
 // ,-----+-----+-----x-----x-----,   ,-----x-----x-----+-----+-----,
-// |  D  |  S  |  T  |  N  |  R  |   |  I  |  A  |  K  |  L  |  ;  |
+// |  D  |  S  |  T  |  N  |  R  |   |  I  |  A  |  E  |  O  |  H  |
 // ,-----+-----+-----x-----x-----,   ,-----x-----x-----+-----+-----,
 // |  Z  |  X  |  C  |  V  |  J  |   |  K  |  P  |  ,  |  .  |  /  |
 // ,-----+-----+-----+-----+-----,   ,-----+-----+-----+-----+-----,
@@ -142,6 +144,21 @@ enum {
 #define ________________CARPALX_R1_________________ KC_Y, KC_F, KC_U, KC_B, KC_SCLN
 #define ________________CARPALX_R2_________________ KC_I, KC_A, KC_E, KC_O, KC_H
 #define ________________CARPALX_R3_________________ KC_K, KC_P, KC_COMM, KC_DOT, KC_SLSH
+
+// ,-----+-----+-----+-----+-----,   ,-----+-----+-----+-----+-----,
+// |  Q  |  W  |  F  |  P  |  B  |   |  J  |  L  |  U  |  Y  |  ;  |
+// ,-----+-----+-----x-----x-----,   ,-----x-----x-----+-----+-----,
+// |  D  |  R  |  S  |  T  |  G  |   |  M  |  N  |  E  |  I  |  O  |
+// ,-----+-----+-----x-----x-----,   ,-----x-----x-----+-----+-----,
+// |  Z  |  X  |  C  |  D  |  V  |   |  K  |  H  |  ,  |  .  |  /  |
+// ,-----+-----+-----+-----+-----,   ,-----+-----+-----+-----+-----,
+#define ______________COLEMAKDH_L1_________________ KC_Q, KC_W, KC_F, KC_P, KC_B
+#define ______________COLEMAKDH_L2_________________ KC_A, KC_R, KC_S, KC_T, KC_G
+#define ______________COLEMAKDH_L3_________________ KC_Z, KC_X, KC_C, KC_D, KC_V
+
+#define ______________COLEMAKDH_R1_________________ KC_J, KC_L, KC_U, KC_Y, KC_SCLN
+#define ______________COLEMAKDH_R2_________________ KC_M, KC_N, KC_E, KC_I, KC_O
+#define ______________COLEMAKDH_R3_________________ KC_K, KC_H, KC_COMM, KC_DOT, KC_SLSH
 
 // ,-----+-----+-----+-----+-----,   ,-----+-----+-----+-----+-----,
 // |  !  | @   |  {  |  }  |  _  |   |  \  |     |  `  |     |     |

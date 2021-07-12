@@ -151,6 +151,7 @@ static void render_status(void) {
             break;
         default:
             oled_write_P(PSTR("? ? ?\n"), false);
+            break;
     }
 }
 

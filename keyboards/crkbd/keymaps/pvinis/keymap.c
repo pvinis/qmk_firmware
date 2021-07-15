@@ -42,6 +42,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // clang-format on
         ),
 
+    [LR_COLEMAKDH] = LAYOUT_split_3x6_3_wrapper(
+        // clang-format off
+        _______, ______________COLEMAKDH_L1_________________,    ______________COLEMAKDH_R1_________________, _______,
+        _______, __________MOD_COLEMAKDH_L2_________________,    ______________COLEMAKDH_R2_________________, _______,
+        _______, ______________COLEMAKDH_L3_________________,    ______________COLEMAKDH_R3_________________, _______,
+                                   _______, _______, _______,    _______, _______, _______
+        // clang-format on
+        ),
+
     [LR_SYMBOL] = LAYOUT_split_3x6_3_wrapper(
         // clang-format off
         _______, _________________SYMBOL_L1_________________,    _________________SYMBOL_R1_________________, _______,
@@ -127,6 +136,9 @@ static void render_status(void) {
     switch (get_highest_layer(layer_state)) {
         case LR_QWERTY:
             oled_write_P(PSTR("QWERT\n"), false);
+            break;
+        case LR_COLEMAKDH:
+            oled_write_P(PSTR("CLMDH\n"), false);
             break;
         case LR_SYMBOL:
             oled_write_P(PSTR("SYMBL\n"), false);
